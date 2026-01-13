@@ -12,7 +12,7 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: "Microsoft Yahei", "PingFang SC", "Georgia", "Times New Roman", serif;
-  color: #d6e6ff; /* 浅蓝色文字 */
+  color: #0b4f9c; /* 与导航栏一致的蓝色 */
   background: url('terrence_photo.jpg') center center / cover no-repeat;
   overflow: hidden;
 }
@@ -39,7 +39,7 @@ nav a {
   font-size: 16px;
 }
 
-/* ===== 顶部标题（保留结构但不再显示文字） ===== */
+/* ===== 顶部占位（不显示文字） ===== */
 header {
   height: 100px;
 }
@@ -52,7 +52,7 @@ header {
   animation: fadeIn 1s forwards;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 140px; /* 整体往中间靠 */
+  padding-left: 140px;
   box-sizing: border-box;
 }
 
@@ -62,21 +62,22 @@ header {
   font-size: 20px;
   font-weight: 500;
   line-height: 1.7;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   animation: slideInLeft 1s forwards;
 }
 
-/* 名字样式 */
+/* ===== 名字（防止“杰”断行） ===== */
 .left h1 {
   font-size: 42px;
   font-weight: 700;
   margin: 0 0 28px 0;
-  color: #e4efff;
+  color: #0b4f9c;
+  white-space: nowrap; /* 关键：禁止拆行 */
 }
 
-/* 链接颜色 */
+/* ===== 链接颜色 ===== */
 .left a {
-  color: #d6e6ff;
+  color: #0b4f9c;
   text-decoration: underline;
 }
 
@@ -112,7 +113,7 @@ header {
   }
 
   .left h1 {
-    font-size: 32px;
+    font-size: 30px; /* 稍微降一点，仍不拆行 */
   }
 
   nav {
