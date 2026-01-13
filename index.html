@@ -17,7 +17,7 @@ html, body {
   overflow: hidden; /* 一屏显示 */
 }
 
-/* ===== 顶部导航栏 ===== */
+/* ===== 导航栏 ===== */
 nav {
   width: 100%;
   background-color: rgba(11,79,156,0.9); /* 浅蓝色半透明 */
@@ -48,61 +48,67 @@ nav a:hover {
 header {
   width: 100%;
   text-align: center;
-  padding: 100px 20px 20px 20px; /* 留出导航栏空间 */
   font-size: 36px;
   font-weight: normal;
+  padding-top: 100px; /* 导航高度 + 上边距 */
   box-sizing: border-box;
 }
 
 /* ===== 主体容器 ===== */
 .main-container {
   display: flex;
+  flex: 1;
   height: calc(100% - 180px); /* 减去导航和标题高度 */
-  margin-top: 20px;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
   opacity: 0;
   animation: fadeIn 1s forwards;
 }
 
 /* ===== 左右栏 ===== */
-.left, .right {
+.left {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 40px;
-  box-sizing: border-box;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 18px; 
   font-weight: 500;
+  text-align: right; /* 靠近竖线 */
+  animation: slideInLeft 1s forwards;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* 靠近竖线 */
+  padding: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  animation: slideInRight 1s forwards;
 }
 
 /* ===== 中间竖线 ===== */
 .middle-line {
   width: 2px;
   background-color: #ccc;
-}
-
-/* ===== 左栏内容动画 ===== */
-.left {
-  animation: slideInLeft 1s forwards;
-}
-
-.right {
-  animation: slideInRight 1s forwards;
-  align-items: center;
+  height: 80%; /* 高度自适应但不超过屏幕 */
+  margin: 0 20px;
 }
 
 /* ===== 图片样式 ===== */
 .right img {
-  max-height: 80%;
-  max-width: 90%;
+  max-height: 90%;
+  width: auto;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
 }
 
 .right img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 /* ===== 动画 ===== */
@@ -129,12 +135,20 @@ header {
   .main-container {
     flex-direction: column;
     height: auto;
+    padding: 20px 0;
   }
   .middle-line {
     display: none;
   }
   .left, .right {
     padding: 20px;
+    text-align: center;
+    align-items: center;
+  }
+  nav {
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 10px;
   }
 }
 </style>
