@@ -16,14 +16,12 @@
       background-color: #fff;
     }
 
+    /* ===== Navigation ===== */
     nav {
       text-align: left;
       margin-bottom: 40px;
       font-size: 15px;
-      padding: 10px 20px;
-      background-color: #f2f7fc;
-      border-bottom: 1px solid #ccc;
-      border-radius: 6px;
+      padding: 0;
     }
 
     nav a {
@@ -40,6 +38,7 @@
       text-decoration: underline;
     }
 
+    /* ===== 页眉 ===== */
     h1 {
       font-size: 32px;
       font-weight: normal;
@@ -47,10 +46,11 @@
       text-align: center;
     }
 
+    /* ===== 双栏容器 ===== */
     .container {
       display: flex;
       gap: 40px;
-      align-items: stretch; /* 左右栏严格等高 */
+      align-items: stretch; /* 左右栏等高 */
       opacity: 0;
       animation: fadeIn 1s forwards;
     }
@@ -74,7 +74,7 @@
       font-weight: 500;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* 图片垂直居中 */
+      justify-content: center; /* 照片垂直居中 */
     }
 
     .right img {
@@ -110,11 +110,12 @@
       margin-bottom: 12px;
     }
 
+    /* ===== 手机自适应 ===== */
     @media (max-width: 768px) {
       nav {
         display: flex;
         flex-direction: column;
-        padding: 10px;
+        padding: 0;
         gap: 10px;
       }
       nav a {
@@ -137,6 +138,7 @@
       }
     }
 
+    /* ===== 淡入动画 ===== */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -146,6 +148,7 @@
 
 <body>
 
+<!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="research.html">Research</a>
@@ -156,7 +159,9 @@
 
 <h1>Ho Wankit-Terrence 何尹杰</h1>
 
+<!-- ===== Two-column container ===== -->
 <div class="container">
+  <!-- 左栏 -->
   <div class="left">
     <p>Welcome~</p>
     <p>I am a postdoctoral researcher at The Chinese University of Hong Kong, working on spatiotemporal data analysis, GIS, remote sensing, and urban sustainable development.</p>
@@ -169,6 +174,7 @@
     </div>
   </div>
 
+  <!-- 右栏 -->
   <div class="right">
     <img src="terrence_photo.jpg" alt="Yinjie He Photo">
   </div>
