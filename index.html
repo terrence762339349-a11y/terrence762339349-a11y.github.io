@@ -2,88 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yinjie He | Academic Homepage</title>
+  <title>Home | Yinjie He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    :root {
-      --text-color: #222;
-      --subtext-color: #555;
-      --link-color: #0b4f9c;
-      --border-color: #e0e0e0;
-    }
-
     body {
       font-family: "Georgia", "Times New Roman", serif;
-      max-width: 880px;
+      max-width: 960px;
       margin: 60px auto;
       padding: 0 20px;
       line-height: 1.75;
-      color: var(--text-color);
+      color: #222;
       background-color: #fff;
     }
 
-    /* ===== Navigation ===== */
     nav {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
       font-size: 15px;
     }
 
     nav a {
       margin: 0 16px;
-      color: var(--link-color);
+      color: #0b4f9c;
       text-decoration: none;
-      letter-spacing: 0.5px;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    /* ===== Headings ===== */
     h1 {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: normal;
-      margin-bottom: 6px;
+      margin-bottom: 30px;
+      text-align: center;
     }
 
-    h2 {
-      font-size: 22px;
-      font-weight: normal;
-      margin-top: 60px;
-      margin-bottom: 16px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-color);
+    /* 双栏容器 */
+    .container {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
     }
 
-    /* ===== Intro ===== */
-    .subtitle {
-      color: var(--subtext-color);
-      font-size: 16px;
-      margin-bottom: 20px;
+    /* 左右列比例 */
+    .left {
+      flex: 3;
+      padding: 20px;
+      border-right: 2px solid #ccc;
     }
 
-    .contact a {
-      color: var(--link-color);
-      text-decoration: none;
-      margin-right: 14px;
-      font-size: 15px;
+    .right {
+      flex: 2;
+      padding: 20px;
+      text-align: center;
     }
 
-    .contact a:hover {
-      text-decoration: underline;
+    .right img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
     }
 
-    /* ===== Paragraphs ===== */
+    .right img:hover {
+      transform: scale(1.03);
+    }
+
     p {
-      margin: 14px 0;
       font-size: 16px;
+      margin-bottom: 12px;
     }
 
-    /* ===== Footer spacing ===== */
-    .spacer {
-      height: 40px;
+    /* 手机自适应 */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .left {
+        border-right: none;
+        border-bottom: 2px solid #ccc;
+      }
+      .right {
+        padding-top: 20px;
+      }
+      .right img:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -99,41 +106,24 @@
   <a href="cv.html">CV</a>
 </nav>
 
-<!-- ===== Header ===== -->
-<h1>Yinjie He (何尹杰)</h1>
+<h1>Hello, I'm Terrence</h1>
 
-<div class="subtitle">
-Postdoctoral Researcher · The Chinese University of Hong Kong (Shenzhen)<br>
-GIS · Remote Sensing · Urban Sustainability · Land Use Science
+<!-- ===== Two-column container ===== -->
+<div class="container">
+
+  <!-- Left column: original content -->
+  <div class="left">
+    <p>This is my personal website hosted on GitHub Pages.</p>
+    <p>I am a postdoctoral researcher at The Chinese University of Hong Kong, Shenzhen, working on spatiotemporal data analysis, GIS, remote sensing, and urban sustainable development.</p>
+    <p>Feel free to navigate to my Research, Publications, Projects, or CV pages for more information.</p>
+  </div>
+
+  <!-- Right column: personal photo -->
+  <div class="right">
+    <img src="your_photo.jpg" alt="Yinjie He Photo">
+  </div>
+
 </div>
-
-<div class="contact">
-  <a href="mailto:Terrence17@163.com">Email</a>
-  <a href="https://orcid.org/0009-0006-8293-0413" target="_blank">ORCID</a>
-  <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">
-    Web of Science
-  </a>
-  <a href="https://github.com/terrence762339349-a11y" target="_blank">GitHub</a>
-</div>
-
-<!-- ===== About ===== -->
-<h2>About Me</h2>
-
-<p>
-I am a postdoctoral researcher at The Chinese University of Hong Kong (Shenzhen),
-holding a PhD in Land Resource Management from Renmin University of China.
-My research interests focus on spatiotemporal data analytics, GIS and remote sensing,
-land use and transportation interaction, and urban green and low-carbon development.
-</p>
-
-<p>
-I have participated in several national-level research projects, including the
-National Key R&D Program of China (2022YFB3903700). My work has been published in
-peer-reviewed journals such as <i>Land</i>, <i>Land Degradation & Development</i>,
-and <i>Scientific Reports</i>.
-</p>
-
-<div class="spacer"></div>
 
 </body>
 </html>
