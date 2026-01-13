@@ -14,83 +14,86 @@ html, body {
   font-family: "Microsoft Yahei", "PingFang SC", "Georgia", "Times New Roman", serif;
   color: #222;
   background-color: #ffffff;
-  overflow: hidden; /* 一屏显示，无上下滚动 */
+  overflow: hidden; /* 一屏显示 */
+}
+
+/* ===== 顶部导航栏 ===== */
+nav {
+  width: 100%;
+  background-color: rgba(11,79,156,0.9); /* 浅蓝色半透明 */
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  margin: 0 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 /* ===== 顶部标题 ===== */
 header {
   width: 100%;
   text-align: center;
-  padding: 40px 20px 20px 20px;
+  padding: 100px 20px 20px 20px; /* 留出导航栏空间 */
   font-size: 36px;
   font-weight: normal;
+  box-sizing: border-box;
 }
 
 /* ===== 主体容器 ===== */
 .main-container {
   display: flex;
-  height: calc(100% - 100px); /* 减去标题高度 */
+  height: calc(100% - 180px); /* 减去导航和标题高度 */
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
 }
 
-/* ===== 左侧导航栏 + 内容 ===== */
-.sidebar {
-  width: 300px;
-  min-width: 280px;
-  background-color: #f4f8fc; /* 浅背景，突显内容 */
-  display: flex;
-  flex-direction: column;
-  padding: 30px 20px;
-  box-sizing: border-box;
-  border-right: 2px solid #ccc;
-  justify-content: flex-start;
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-}
-
-.sidebar nav a {
-  color: #0b4f9c;
-  text-decoration: none;
-  font-weight: 600;
-  font-family: "Georgia", serif;
-  margin-bottom: 16px;
-  font-size: 16px;
-  transition: all 0.2s ease;
-}
-
-.sidebar nav a:hover {
-  color: #084080;
-  text-decoration: underline;
-}
-
-.sidebar .intro p {
-  margin: 12px 0;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.sidebar .intro a {
-  color: #0b4f9c;
-  text-decoration: none;
-}
-
-.sidebar .intro a:hover {
-  text-decoration: underline;
-}
-
-/* ===== 右侧照片 ===== */
-.photo {
+/* ===== 左右栏 ===== */
+.left, .right {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 40px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
 }
 
-.photo img {
+/* ===== 中间竖线 ===== */
+.middle-line {
+  width: 2px;
+  background-color: #ccc;
+}
+
+/* ===== 左栏内容动画 ===== */
+.left {
+  animation: slideInLeft 1s forwards;
+}
+
+.right {
+  animation: slideInRight 1s forwards;
+  align-items: center;
+}
+
+/* ===== 图片样式 ===== */
+.right img {
   max-height: 80%;
   max-width: 90%;
   border-radius: 12px;
@@ -98,21 +101,11 @@ header {
   transition: transform 0.3s ease;
 }
 
-.photo img:hover {
+.right img:hover {
   transform: scale(1.03);
 }
 
-/* ===== 左右栏动画 ===== */
-.sidebar {
-  opacity: 0;
-  animation: slideInLeft 1s forwards;
-}
-
-.photo {
-  opacity: 0;
-  animation: slideInRight 1s forwards;
-}
-
+/* ===== 动画 ===== */
 @keyframes slideInLeft {
   0% { opacity: 0; transform: translateX(-50px); }
   100% { opacity: 1; transform: translateX(0); }
@@ -123,27 +116,25 @@ header {
   100% { opacity: 1; transform: translateX(0); }
 }
 
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 /* ===== 手机自适应 ===== */
 @media (max-width: 768px) {
   html, body {
-    overflow: auto; /* 手机端允许上下滚动 */
+    overflow: auto;
   }
   .main-container {
     flex-direction: column;
     height: auto;
   }
-  .sidebar {
-    width: 100%;
-    min-width: 0;
-    border-right: none;
-    border-bottom: 2px solid #ccc;
+  .middle-line {
+    display: none;
   }
-  .photo {
+  .left, .right {
     padding: 20px;
-  }
-  .sidebar nav a {
-    font-size: 18px;
-    margin-bottom: 12px;
   }
 }
 </style>
@@ -151,28 +142,33 @@ header {
 
 <body>
 
+<!-- ===== 导航栏 ===== -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="research.html">Research</a>
+  <a href="publications.html">Publications</a>
+  <a href="projects.html">Projects</a>
+  <a href="cv.html">CV</a>
+</nav>
+
+<!-- ===== 顶部标题 ===== -->
 <header>Ho Wankit-Terrence 何尹杰</header>
 
+<!-- ===== 主体容器 ===== -->
 <div class="main-container">
-  <!-- 左侧导航 + 信息 -->
-  <div class="sidebar">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="publications.html">Publications</a>
-      <a href="projects.html">Projects</a>
-      <a href="cv.html">CV</a>
-    </nav>
-    <div class="intro">
-      <p>I am a postdoctoral researcher at The Chinese University of Hong Kong, working on spatiotemporal data analysis, GIS, remote sensing, and urban sustainable development.</p>
-      <p>Email: <a href="mailto:Terrence17@163.com">Terrence17@163.com</a></p>
-      <p>ORCID: <a href="https://orcid.org/0009-0006-8293-0413" target="_blank">0009-0006-8293-0413</a></p>
-      <p>ResearcherID: <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">NGR-8273-2025</a></p>
-    </div>
+  <!-- 左栏 -->
+  <div class="left">
+    <p>I am a postdoctoral researcher at The Chinese University of Hong Kong, working on spatiotemporal data analysis, GIS, remote sensing, and urban sustainable development.</p>
+    <p>Email: <a href="mailto:Terrence17@163.com">Terrence17@163.com</a></p>
+    <p>ORCID: <a href="https://orcid.org/0009-0006-8293-0413" target="_blank">0009-0006-8293-0413</a></p>
+    <p>ResearcherID: <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">NGR-8273-2025</a></p>
   </div>
 
-  <!-- 右侧照片 -->
-  <div class="photo">
+  <!-- 中间竖线 -->
+  <div class="middle-line"></div>
+
+  <!-- 右栏 -->
+  <div class="right">
     <img src="terrence_photo.jpg" alt="Yinjie He Photo">
   </div>
 </div>
