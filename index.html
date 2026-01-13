@@ -48,34 +48,32 @@ nav a:hover {
 header {
   width: 100%;
   text-align: center;
+  padding: 100px 20px 20px 20px; /* 留出导航栏空间 */
   font-size: 36px;
   font-weight: normal;
-  padding-top: 100px; /* 导航高度 + 上边距 */
   box-sizing: border-box;
 }
 
 /* ===== 主体容器 ===== */
 .main-container {
   display: flex;
-  flex: 1;
   height: calc(100% - 180px); /* 减去导航和标题高度 */
-  justify-content: center; /* 水平居中 */
-  align-items: center;     /* 垂直居中 */
+  margin-top: 20px;
   opacity: 0;
   animation: fadeIn 1s forwards;
 }
 
 /* ===== 左右栏 ===== */
 .left {
-  flex: 1;
+  flex: 1.2; /* 左右比例 1.2:1 */
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 40px;
-  font-size: 18px; 
+  font-size: 18px; /* 字体略大 */
   font-weight: 500;
+  box-sizing: border-box;
   text-align: right; /* 靠近竖线 */
-  animation: slideInLeft 1s forwards;
 }
 
 .right {
@@ -87,15 +85,24 @@ header {
   padding: 40px;
   font-size: 16px;
   font-weight: 500;
-  animation: slideInRight 1s forwards;
+  box-sizing: border-box;
 }
 
 /* ===== 中间竖线 ===== */
 .middle-line {
   width: 2px;
   background-color: #ccc;
-  height: 80%; /* 高度自适应但不超过屏幕 */
-  margin: 0 20px;
+  align-self: stretch;
+  margin: 0 10px;
+}
+
+/* ===== 左右栏动画 ===== */
+.left {
+  animation: slideInLeft 1s forwards;
+}
+
+.right {
+  animation: slideInRight 1s forwards;
 }
 
 /* ===== 图片样式 ===== */
@@ -135,14 +142,13 @@ header {
   .main-container {
     flex-direction: column;
     height: auto;
-    padding: 20px 0;
   }
   .middle-line {
     display: none;
   }
   .left, .right {
     padding: 20px;
-    text-align: center;
+    text-align: left;
     align-items: center;
   }
   nav {
