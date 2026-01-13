@@ -13,7 +13,7 @@
       padding: 0 20px;
       line-height: 1.75;
       color: #222;
-      background-color: #fff;
+      background-color: #f9f9f9;
     }
 
     nav {
@@ -26,6 +26,7 @@
       margin: 0 16px;
       color: #0b4f9c;
       text-decoration: none;
+      font-weight: bold;
     }
 
     nav a:hover {
@@ -33,7 +34,7 @@
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 34px;
       font-weight: normal;
       margin-bottom: 30px;
       text-align: center;
@@ -51,12 +52,18 @@
       flex: 3;
       padding: 20px;
       border-right: 2px solid #ccc;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .right {
       flex: 2;
       padding: 20px;
+      background-color: #e8f0fe; /* 浅蓝色背景块 */
+      border-radius: 12px;
       text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
 
     .right img {
@@ -65,10 +72,26 @@
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
+      margin-bottom: 15px;
     }
 
     .right img:hover {
       transform: scale(1.03);
+    }
+
+    .contact {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .contact a {
+      color: #0b4f9c;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
     }
 
     p {
@@ -84,6 +107,7 @@
       .left {
         border-right: none;
         border-bottom: 2px solid #ccc;
+        margin-bottom: 20px;
       }
       .right {
         padding-top: 20px;
@@ -106,24 +130,22 @@
   <a href="cv.html">CV</a>
 </nav>
 
-<h1> Ho Wankit-Terrence(何尹杰)</h1>
+<h1>Hello, I'm Terrence</h1>
 
 <!-- ===== Two-column container ===== -->
 <div class="container">
 
   <!-- Left column: original content -->
   <div class="left">
-    <p>This is my personal website.</p>
+    <p>Welcome to my personal website hosted on GitHub Pages.</p>
     <p>I am a postdoctoral researcher at The Chinese University of Hong Kong, Shenzhen, working on spatiotemporal data analysis, GIS, remote sensing, and urban sustainable development.</p>
-    <p>Feel free to navigate to my Research, Publications, Projects, or CV pages for more information.</p>
+    <p>Feel free to explore my Research, Publications, Projects, or CV pages for more details.</p>
   </div>
 
-  <!-- Right column: personal photo -->
+  <!-- Right column: personal photo + contact info -->
   <div class="right">
     <img src="terrence_photo.jpg" alt="Yinjie He Photo">
-  </div>
-
-</div>
-
-</body>
-</html>
+    <div class="contact">
+      <p>📞 Tel: 133 9191 4074</p>
+      <p>✉️ Email: <a href="mailto:yjhe@cuhkri.org.cn">yjhe@cuhkri.org.cn</a></p>
+      <p>ORCID: <a href="https://orcid.org/0009-0006-8293-0413" t
