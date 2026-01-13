@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    /* ===== 基本字体和页面布局 ===== */
     body {
       font-family: "Microsoft Yahei", "PingFang SC", "Georgia", "Times New Roman", serif;
       max-width: 960px;
@@ -17,29 +16,30 @@
       background-color: #fff;
     }
 
-    /* ===== Navigation ===== */
     nav {
       text-align: left;
       margin-bottom: 40px;
       font-size: 15px;
       padding: 10px 20px;
+      background-color: #f2f7fc;
+      border-bottom: 1px solid #ccc;
+      border-radius: 6px;
     }
 
     nav a {
       margin-right: 24px;
       color: #0b4f9c;
       text-decoration: none;
-      font-weight: 600; /* 略加粗 */
+      font-weight: 600;
+      font-family: "Georgia", serif;
       transition: all 0.2s ease;
-      font-family: "Georgia", serif; /* 英文保持 serif */
     }
 
     nav a:hover {
-      text-decoration: underline;
       color: #084080;
+      text-decoration: underline;
     }
 
-    /* ===== 页眉 ===== */
     h1 {
       font-size: 32px;
       font-weight: normal;
@@ -47,12 +47,11 @@
       text-align: center;
     }
 
-    /* ===== 双栏容器 ===== */
     .container {
       display: flex;
-      gap: 40px; /* 左右栏间距 */
-      align-items: stretch; /* 高度严格一致 */
-      opacity: 0; /* 淡入动画初始值 */
+      gap: 40px;
+      align-items: stretch; /* 左右栏严格等高 */
+      opacity: 0;
       animation: fadeIn 1s forwards;
     }
 
@@ -60,7 +59,7 @@
       flex: 3;
       padding: 20px;
       border-right: 2px solid #ccc;
-      font-size: 16px; /* 联系信息字体增大 */
+      font-size: 16px;
       font-weight: 500;
       display: flex;
       flex-direction: column;
@@ -71,11 +70,11 @@
       flex: 2;
       padding: 20px;
       text-align: center;
-      font-size: 16px; /* 联系信息字体增大 */
+      font-size: 16px;
       font-weight: 500;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* 照片垂直居中 */
+      justify-content: center; /* 图片垂直居中 */
     }
 
     .right img {
@@ -111,71 +110,42 @@
       margin-bottom: 12px;
     }
 
-    /* ===== 手机自适应 ===== */
     @media (max-width: 768px) {
       nav {
         display: flex;
-        flex-direction: column; /* 竖排导航 */
+        flex-direction: column;
         padding: 10px;
         gap: 10px;
       }
-
       nav a {
         margin-right: 0;
         font-size: 17px;
-        font-weight: 600;
       }
-
       .container {
         flex-direction: column;
         gap: 30px;
       }
-
       .left {
         border-right: none;
         border-bottom: 2px solid #ccc;
       }
-
       .right {
         padding-top: 20px;
       }
-
       .right img:hover {
         transform: none;
       }
     }
 
-    /* ===== 页面淡入动画 ===== */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== 页脚 ===== */
-    footer {
-      margin-top: 50px;
-      padding-top: 10px;
-      border-top: 1px solid #ccc;
-      font-size: 14px;
-      color: #555;
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    footer a {
-      color: #0b4f9c;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
-<!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="research.html">Research</a>
@@ -186,25 +156,23 @@
 
 <h1>Ho Wankit-Terrence 何尹杰</h1>
 
-<!-- ===== Two-column container ===== -->
 <div class="container">
-
-  <!-- Left column: original content -->
   <div class="left">
-    <p>Welcome~ </p>
+    <p>Welcome~</p>
     <p>I am a postdoctoral researcher at The Chinese University of Hong Kong, working on spatiotemporal data analysis, GIS, remote sensing, and urban sustainable development.</p>
     <p>Feel free to explore my Research, Publications, Projects, or CV pages for more details.</p>
     <p>Contact:</p>
-      <p>Email: <a href="mailto:Terrence17@163.com">Terrence17@163.com</a></p>
-      <p>ORCID: <a href="https://orcid.org/0009-0006-8293-0413" target="_blank">0009-0006-8293-0413</a></p>
-      <p>ResearcherID: <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">NGR-8273-2025</a></p>
+    <div class="contact">
+      <p>📧 Email: <a href="mailto:Terrence17@163.com">Terrence17@163.com</a></p>
+      <p>🌐 ORCID: <a href="https://orcid.org/0009-0006-8293-0413" target="_blank">0009-0006-8293-0413</a></p>
+      <p>🔬 ResearcherID: <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">NGR-8273-2025</a></p>
     </div>
   </div>
 
-  <!-- Right column: personal photo -->
   <div class="right">
     <img src="terrence_photo.jpg" alt="Yinjie He Photo">
   </div>
+</div>
 
 </body>
 </html>
