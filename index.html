@@ -13,39 +13,8 @@ html, body {
   height: 100%;
   font-family: "Microsoft Yahei", "PingFang SC", "Georgia", "Times New Roman", serif;
   color: #222;
-  background: linear-gradient(to bottom, #e0f4ff, #ffffff);
+  background-color: #ffffff;
   scroll-behavior: smooth;
-  transition: background 0.5s, color 0.5s;
-}
-
-/* ===== 夜间模式 ===== */
-body.dark-mode {
-  background: linear-gradient(to bottom, #1e1e1e, #121212);
-  color: #ddd;
-}
-
-body.dark-mode nav {
-  background-color: rgba(11, 79, 156, 0.9);
-}
-
-body.dark-mode nav a {
-  color: #fff;
-}
-
-body.dark-mode nav a:hover {
-  color: #a0c4ff;
-}
-
-body.dark-mode .left {
-  border-right: 2px solid #444;
-}
-
-body.dark-mode .right img {
-  box-shadow: 0 6px 15px rgba(255,255,255,0.2);
-}
-
-body.dark-mode .contact a {
-  color: #89b0f0;
 }
 
 /* ===== 导航栏 ===== */
@@ -54,13 +23,13 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
+  height: 70px; /* 加宽横条 */
   padding: 12px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   z-index: 1000;
-  transition: background 0.4s, box-shadow 0.4s;
-  background-color: rgba(11,79,156,0.85);
+  background-color: rgba(173, 216, 230, 0.95); /* 浅蓝色 */
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -73,16 +42,12 @@ nav a {
   transition: all 0.2s ease;
 }
 
-nav a:last-child {
-  margin-right: 0;
-}
-
 nav a:hover {
-  color: #cce0ff;
+  color: #d0f0ff;
   text-decoration: underline;
 }
 
-/* 汉堡按钮 */
+/* 汉堡菜单按钮（手机端） */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -96,27 +61,11 @@ nav a:hover {
   transition: 0.3s;
 }
 
-/* 夜间模式按钮 */
-.mode-toggle {
-  cursor: pointer;
-  font-size: 14px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: none;
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-  transition: 0.3s;
-}
-
-.mode-toggle:hover {
-  background: rgba(255,255,255,0.35);
-}
-
 /* 页眉 */
 h1 {
   font-size: 36px;
   font-weight: normal;
-  margin: 120px 40px 50px 40px;
+  margin: 100px 40px 50px 40px;
   text-align: center;
 }
 
@@ -133,11 +82,10 @@ h1 {
   align-items: stretch;
   max-width: 1200px;
   width: 100%;
-  min-height: calc(100vh - 200px);
-  opacity: 0;
-  animation: fadeIn 1s forwards;
+  min-height: calc(100vh - 150px);
 }
 
+/* 左右栏 */
 .left, .right {
   display: flex;
   flex-direction: column;
@@ -150,6 +98,8 @@ h1 {
   border-right: 2px solid #ccc;
   font-size: 16px;
   font-weight: 500;
+  opacity: 0;
+  animation: slideInLeft 1s forwards;
 }
 
 .right {
@@ -158,8 +108,11 @@ h1 {
   text-align: center;
   font-size: 16px;
   font-weight: 500;
+  opacity: 0;
+  animation: slideInRight 1s forwards;
 }
 
+/* 图片 */
 .right img {
   max-width: 100%;
   max-height: 100%;
@@ -172,6 +125,7 @@ h1 {
   transform: scale(1.03);
 }
 
+/* 联系信息 */
 .contact {
   margin-top: 20px;
   font-size: 16px;
@@ -188,16 +142,22 @@ h1 {
   text-decoration: underline;
 }
 
-/* 页面淡入动画 */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* 动画 */
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
 /* 手机自适应 */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
+    height: auto;
     padding: 12px 20px;
   }
   nav a {
@@ -213,56 +173,22 @@ h1 {
     border-right: none;
     border-bottom: 2px solid #ccc;
     padding: 20px;
+    animation: slideInLeftMobile 1s forwards;
   }
   .right {
     padding: 20px;
-  }
-  .right img:hover {
-    transform: none;
-  }
-  .menu-toggle {
-    display: flex;
+    animation: slideInRightMobile 1s forwards;
   }
 }
 
-/* 滚动渐变效果 */
-.scrolled {
-  background-color: rgba(11,79,156,1);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+@keyframes slideInLeftMobile {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
-/* 滚动视差背景 */
-body::before {
-  content: "";
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: linear-gradient(to bottom, #cceeff, #ffffff);
-  z-index: -1;
-  transform: translateZ(0);
-}
-body.dark-mode::before {
-  background: linear-gradient(to bottom, #121212, #1e1e1e);
-}
-
-/* 汉堡菜单展开 */
-nav ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-nav ul li {
-  margin-right: 32px;
-}
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    display: none;
-  }
-  nav ul.active {
-    display: flex;
-  }
+@keyframes slideInRightMobile {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 </style>
 </head>
@@ -283,7 +209,6 @@ nav ul li {
     <li><a href="projects.html">Projects</a></li>
     <li><a href="cv.html">CV</a></li>
   </ul>
-  <button class="mode-toggle" onclick="toggleMode()">🌙 Night</button>
 </nav>
 
 <h1>Ho Wankit-Terrence 何尹杰</h1>
@@ -309,22 +234,10 @@ nav ul li {
 </div>
 
 <script>
-// ===== 导航栏滚动渐变 =====
-window.addEventListener('scroll', function() {
-  const nav = document.querySelector('nav');
-  if(window.scrollY > 10) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-});
-
 // ===== 汉堡菜单 =====
 function toggleMenu(){
   const menu = document.querySelector('nav ul');
   menu.classList.toggle('active');
-}
-
-// ===== 夜间模式 =====
-function toggleMode(){
-  document.body.classList.toggle('dark-mode');
 }
 </script>
 
