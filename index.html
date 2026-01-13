@@ -12,7 +12,7 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: "Microsoft Yahei", "PingFang SC", "Georgia", "Times New Roman", serif;
-  color: #fff;
+  color: #d6e6ff; /* 浅蓝色文字 */
   background: url('terrence_photo.jpg') center center / cover no-repeat;
   overflow: hidden;
 }
@@ -20,7 +20,7 @@ html, body {
 /* ===== 导航栏 ===== */
 nav {
   width: 100%;
-  background-color: rgba(11,79,156,0.85); /* 浅蓝半透明 */
+  background-color: rgba(11,79,156,0.85);
   display: flex;
   justify-content: center;
   padding: 12px 0;
@@ -32,51 +32,52 @@ nav {
 
 nav a {
   margin: 0 20px;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   font-family: "Georgia", serif;
   font-size: 16px;
-  transition: all 0.2s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* ===== 顶部标题 ===== */
+/* ===== 顶部标题（保留结构但不再显示文字） ===== */
 header {
-  width: 100%;
-  text-align: center;
-  font-size: 36px;
-  font-weight: normal;
-  padding-top: 100px; /* 导航栏空间 */
-  margin-bottom: 40px;
-  box-sizing: border-box;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  height: 100px;
 }
 
 /* ===== 主体容器 ===== */
 .main-container {
   display: flex;
-  height: calc(100% - 180px); /* 顶部标题+导航 */
-  margin-top: 20px;
+  height: calc(100% - 100px);
   opacity: 0;
   animation: fadeIn 1s forwards;
-  justify-content: flex-start; /* 左侧文字靠左 */
-  align-items: center; /* 垂直居中 */
-  padding-left: 80px; /* 文字距离左边适当距离 */
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 140px; /* 整体往中间靠 */
   box-sizing: border-box;
 }
 
 /* ===== 左侧文字 ===== */
 .left {
-  max-width: 500px;
+  max-width: 520px;
   font-size: 20px;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.7;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
   animation: slideInLeft 1s forwards;
+}
+
+/* 名字样式 */
+.left h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 28px 0;
+  color: #e4efff;
+}
+
+/* 链接颜色 */
+.left a {
+  color: #d6e6ff;
+  text-decoration: underline;
 }
 
 /* ===== 动画 ===== */
@@ -95,23 +96,25 @@ header {
   html, body {
     overflow: auto;
   }
-  header {
-    font-size: 28px;
-    padding-top: 80px;
-  }
+
   .main-container {
     flex-direction: column;
     height: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 120px 24px 40px;
     justify-content: center;
     align-items: center;
   }
+
   .left {
     max-width: 100%;
     text-align: center;
     font-size: 18px;
   }
+
+  .left h1 {
+    font-size: 32px;
+  }
+
   nav {
     flex-direction: column;
     padding: 10px 0;
@@ -123,7 +126,6 @@ header {
 
 <body>
 
-<!-- ===== 导航栏 ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="research.html">Research</a>
@@ -132,16 +134,21 @@ header {
   <a href="cv.html">CV</a>
 </nav>
 
-<!-- ===== 顶部标题 ===== -->
-<header>Ho Wankit-Terrence 何尹杰</header>
+<header></header>
 
-<!-- ===== 主体容器: 文字在左侧 ===== -->
 <div class="main-container">
   <div class="left">
-    <p>I am a postdoctoral researcher at The Chinese University of Hong Kong, working on spatiotemporal data analysis, GIS, remote sensing, and urban sustainable development.</p>
-    <p>Email: <a href="mailto:Terrence17@163.com" style="color:#fff; text-decoration:underline;">Terrence17@163.com</a></p>
-    <p>ORCID: <a href="https://orcid.org/0009-0006-8293-0413" target="_blank" style="color:#fff; text-decoration:underline;">0009-0006-8293-0413</a></p>
-    <p>ResearcherID: <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank" style="color:#fff; text-decoration:underline;">NGR-8273-2025</a></p>
+    <h1>Ho Wankit-Terrence 何尹杰</h1>
+
+    <p>
+      I am a postdoctoral researcher at The Chinese University of Hong Kong,
+      working on spatiotemporal data analysis, GIS, remote sensing,
+      and urban sustainable development.
+    </p>
+
+    <p>Email: <a href="mailto:Terrence17@163.com">Terrence17@163.com</a></p>
+    <p>ORCID: <a href="https://orcid.org/0009-0006-8293-0413" target="_blank">0009-0006-8293-0413</a></p>
+    <p>ResearcherID: <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">NGR-8273-2025</a></p>
   </div>
 </div>
 
