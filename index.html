@@ -16,21 +16,29 @@
       background-color: #fff;
     }
 
-    nav {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 15px;
-    }
+  /* ===== Navigation ===== */
+nav {
+  text-align: left;           /* 左对齐 */
+  margin-bottom: 40px;
+  font-size: 15px;
+  padding-left: 20px;         /* 左侧缩进 */
+  border-bottom: 1px solid #ccc;  /* 底部细线 */
+  padding-bottom: 8px;
+}
 
-    nav a {
-      margin: 0 16px;
-      color: #0b4f9c;
-      text-decoration: none;
-    }
+nav a {
+  margin-right: 24px;         /* 链接间距 */
+  color: #0b4f9c;
+  text-decoration: none;
+  font-weight: 600;           /* 稍微加粗 */
+  transition: all 0.2s ease;
+  font-family: "Georgia", serif;
+}
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+nav a:hover {
+  text-decoration: underline; /* 悬停显示下划线 */
+  color: #084080;             /* 悬停颜色加深 */
+}
 
     h1 {
       font-size: 32px;
