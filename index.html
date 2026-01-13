@@ -6,46 +6,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, "Helvetica Neue", Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.7;
-      color: #222;
+    :root {
+      --text-color: #222;
+      --subtext-color: #555;
+      --link-color: #0b4f9c;
+      --border-color: #e0e0e0;
     }
 
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      max-width: 880px;
+      margin: 60px auto;
+      padding: 0 20px;
+      line-height: 1.75;
+      color: var(--text-color);
+      background-color: #fff;
+    }
+
+    /* ===== Navigation ===== */
     nav {
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 16px;
+      margin-bottom: 60px;
+      font-size: 15px;
     }
 
     nav a {
-      margin: 0 14px;
-      font-weight: 500;
-      color: #0056b3;
+      margin: 0 16px;
+      color: var(--link-color);
       text-decoration: none;
+      letter-spacing: 0.5px;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
+    /* ===== Headings ===== */
     h1 {
-      margin-top: 0;
-      font-size: 32px;
+      font-size: 34px;
+      font-weight: normal;
+      margin-bottom: 6px;
     }
 
     h2 {
-      margin-top: 40px;
-      border-bottom: 1px solid #ddd;
+      font-size: 22px;
+      font-weight: normal;
+      margin-top: 60px;
+      margin-bottom: 16px;
       padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* ===== Intro ===== */
+    .subtitle {
+      color: var(--subtext-color);
+      font-size: 16px;
+      margin-bottom: 20px;
     }
 
     .contact a {
-      margin-right: 12px;
+      color: var(--link-color);
+      text-decoration: none;
+      margin-right: 14px;
+      font-size: 15px;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Paragraphs ===== */
+    p {
+      margin: 14px 0;
+      font-size: 16px;
+    }
+
+    /* ===== Footer spacing ===== */
+    .spacer {
+      height: 40px;
     }
   </style>
 </head>
@@ -64,35 +102,38 @@
 <!-- ===== Header ===== -->
 <h1>Yinjie He (何尹杰)</h1>
 
-<p>
-Postdoctoral Researcher, The Chinese University of Hong Kong (Shenzhen)<br>
-GIS · Remote Sensing · Urban Sustainability · Land Use
-</p>
+<div class="subtitle">
+Postdoctoral Researcher · The Chinese University of Hong Kong (Shenzhen)<br>
+GIS · Remote Sensing · Urban Sustainability · Land Use Science
+</div>
 
-<p class="contact">
-📧 <a href="mailto:yjhe@cuhkri.org.cn">yjhe@cuhkri.org.cn</a>
-<a href="https://orcid.org/0009-0006-8293-0413" target="_blank">ORCID</a>
-<a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">
-Web of Science
-</a>
-<a href="https://github.com/terrence762339349-a11y" target="_blank">GitHub</a>
-</p>
+<div class="contact">
+  <a href="mailto:yjhe@cuhkri.org.cn">Email</a>
+  <a href="https://orcid.org/0009-0006-8293-0413" target="_blank">ORCID</a>
+  <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">
+    Web of Science
+  </a>
+  <a href="https://github.com/terrence762339349-a11y" target="_blank">GitHub</a>
+</div>
 
 <!-- ===== About ===== -->
 <h2>About Me</h2>
 
 <p>
 I am a postdoctoral researcher at The Chinese University of Hong Kong (Shenzhen),
-with a PhD in Land Resource Management from Renmin University of China.
-My research focuses on spatiotemporal data analytics, GIS and remote sensing,
+holding a PhD in Land Resource Management from Renmin University of China.
+My research interests focus on spatiotemporal data analytics, GIS and remote sensing,
 land use and transportation interaction, and urban green and low-carbon development.
 </p>
 
 <p>
-I have participated in national-level research projects, including the National Key
-R&D Program of China (2022YFB3903700), and have published peer-reviewed articles
-in journals such as <i>Land</i> and <i>Land Degradation & Development</i>.
+I have participated in several national-level research projects, including the
+National Key R&D Program of China (2022YFB3903700). My work has been published in
+peer-reviewed journals such as <i>Land</i>, <i>Land Degradation & Development</i>,
+and <i>Scientific Reports</i>.
 </p>
+
+<div class="spacer"></div>
 
 </body>
 </html>
