@@ -14,7 +14,6 @@ html, body {
   font-family: "Microsoft Yahei", "PingFang SC", "Georgia", "Times New Roman", serif;
   color: #0b4f9c;
   background: url('terrence_photo.jpg') center center / cover no-repeat;
-  overflow: hidden;
 }
 
 /* ===== 导航栏 ===== */
@@ -52,19 +51,21 @@ header {
   align-items: center;
   padding-left: 140px;
   box-sizing: border-box;
-  opacity: 0;
   animation: fadeIn 1s forwards;
 }
 
-/* ===== 左侧文字 ===== */
+/* ===== 左侧文字（关键修复点） ===== */
 .left {
   max-width: 520px;
   font-size: 20px;
   line-height: 1.7;
+  padding: 28px 32px;
+  background: rgba(255, 255, 255, 0.82); /* ★ 轻微承托背景 */
+  border-radius: 6px;
   animation: slideInLeft 1s forwards;
 }
 
-/* 标题：无阴影，防止换行 */
+/* 标题：防止换行 */
 .left h1 {
   font-size: 42px;
   font-weight: 700;
@@ -77,16 +78,16 @@ header {
   margin: 0 0 14px 0;
 }
 
-/* ===== 联系方式区块 ===== */
+/* ===== 联系方式 ===== */
 .contact {
   margin-top: 12px;
-  font-family: "Georgia", serif;   /* 与正文区分 */
+  font-family: "Georgia", serif;
   font-size: 17px;
-  line-height: 1.4;                /* 间距更紧凑 */
+  line-height: 1.4;
 }
 
 .contact p {
-  margin: 4px 0;                   /* 明确缩小三行间距 */
+  margin: 4px 0;
 }
 
 .contact a {
@@ -101,8 +102,8 @@ header {
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ===== 手机端 ===== */
@@ -135,10 +136,12 @@ header {
 
   .left {
     font-size: 18px;
+    padding: 24px;
   }
 
   .left h1 {
     font-size: 30px;
+    white-space: normal;
   }
 
   .contact {
@@ -162,7 +165,7 @@ header {
 
 <div class="main-container">
   <div class="left">
-    <h1>何尹杰(Ho Wankit)-Terrence </h1>
+    <h1>何尹杰 (Ho Wankit) – Terrence</h1>
 
     <p>
       I am a postdoctoral researcher at The Chinese University of Hong Kong,
