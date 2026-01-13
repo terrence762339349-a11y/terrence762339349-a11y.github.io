@@ -61,18 +61,35 @@ header {
   max-width: 520px;
   font-size: 20px;
   line-height: 1.7;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   animation: slideInLeft 1s forwards;
 }
 
+/* 标题：无阴影，防止换行 */
 .left h1 {
   font-size: 42px;
   font-weight: 700;
-  margin: 0 0 28px 0;
-  white-space: nowrap; /* 防止“杰”单独换行 */
+  margin: 0 0 26px 0;
+  white-space: nowrap;
 }
 
-.left a {
+/* 正文段落 */
+.left p {
+  margin: 0 0 14px 0;
+}
+
+/* ===== 联系方式区块 ===== */
+.contact {
+  margin-top: 12px;
+  font-family: "Georgia", serif;   /* 与正文区分 */
+  font-size: 17px;
+  line-height: 1.4;                /* 间距更紧凑 */
+}
+
+.contact p {
+  margin: 4px 0;                   /* 明确缩小三行间距 */
+}
+
+.contact a {
   color: #0b4f9c;
   text-decoration: underline;
 }
@@ -88,7 +105,7 @@ header {
   100% { opacity: 1; }
 }
 
-/* ===== 手机自适应 ===== */
+/* ===== 手机端 ===== */
 @media (max-width: 768px) {
   html, body {
     overflow: auto;
@@ -97,10 +114,9 @@ header {
     background-color: #ffffff;
   }
 
-  /* ✅ 关键修改：手机端导航保持横排 */
   nav {
     flex-direction: row;
-    flex-wrap: wrap;          /* 小屏自动换行 */
+    flex-wrap: wrap;
     padding: 10px 12px;
   }
 
@@ -124,6 +140,10 @@ header {
   .left h1 {
     font-size: 30px;
   }
+
+  .contact {
+    font-size: 16px;
+  }
 }
 </style>
 </head>
@@ -140,19 +160,4 @@ header {
 
 <header></header>
 
-<div class="main-container">
-  <div class="left">
-    <h1>Ho Wankit-Terrence 何尹杰</h1>
-    <p>
-      I am a postdoctoral researcher at The Chinese University of Hong Kong,
-      working on spatiotemporal data analysis, GIS, remote sensing,
-      and urban sustainable development.
-    </p>
-    <p>Email: <a href="mailto:Terrence17@163.com">Terrence17@163.com</a></p>
-    <p>ORCID: <a href="https://orcid.org/0009-0006-8293-0413" target="_blank">0009-0006-8293-0413</a></p>
-    <p>ResearcherID: <a href="https://www.webofscience.com/wos/author/record/NGR-8273-2025" target="_blank">NGR-8273-2025</a></p>
-  </div>
-</div>
-
-</body>
-</html>
+<div
