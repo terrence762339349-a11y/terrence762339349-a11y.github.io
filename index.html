@@ -12,7 +12,7 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: "Microsoft Yahei", "PingFang SC", "Georgia", "Times New Roman", serif;
-  color: #5fa8e8; /* 浅蓝色文字 */
+  color: #0b4f9c; /* 与导航栏蓝色一致 */
   background: url('terrence_photo.jpg') center center / cover no-repeat;
   overflow: hidden;
 }
@@ -38,9 +38,10 @@ nav a {
   font-size: 16px;
 }
 
-/* News 特别强调：阴影而不是下划线 */
+/* News 特别强调：黄色描边 */
 nav a.news {
-  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  -webkit-text-stroke: 0.8px #f2c94c; /* 柔和黄边 */
+  text-stroke: 0.8px #f2c94c;
 }
 
 /* ===== 顶部占位 ===== */
@@ -70,7 +71,7 @@ header {
   font-size: 42px;
   font-weight: 700;
   margin: 0 0 24px 0;
-  white-space: nowrap; /* 防止“杰”掉行 */
+  white-space: nowrap;
 }
 
 /* 正文 */
@@ -99,7 +100,7 @@ header {
 }
 
 .contact a {
-  color: #5fa8e8;
+  color: #0b4f9c; /* 与正文一致 */
   text-decoration: none;
 }
 
