@@ -1,120 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>News | Yinjie He</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>News | Terrence He</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root {
-      --main-blue: #0b4f9c;
-      --text-color: #222;
-      --subtext-color: #555;
-      --border-color: #e6e6e6;
-    }
+<style>
+:root {
+  --main-blue: #0b4f9c;
+  --border-color: #e5e5e5;
+  --text-color: #222;
+  --subtext-color: #555;
+}
 
-    body {
-      margin: 0;
-      font-family: "Georgia", "Times New Roman", serif;
-      color: var(--text-color);
-      background-color: #ffffff;
-      line-height: 1.75;
-    }
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  margin: 0;
+  background: #fff;
+  color: var(--text-color);
+}
 
-    /* ===== Navigation ===== */
-    nav {
-      background-color: var(--main-blue);
-      padding: 14px 0;
-      text-align: center;
-    }
+/* ===== Navigation ===== */
+nav {
+  background-color: var(--main-blue);
+  padding: 14px 0;
+  text-align: center;
+}
 
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      margin: 0 16px;
-      font-size: 15px;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
+nav a {
+  color: #fff;
+  margin: 0 16px;
+  text-decoration: none;
+  font-size: 15px;
+}
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+.nav-current {
+  font-weight: 700;
+  text-decoration: underline;
+}
 
-    .nav-current {
-      font-weight: 700;
-      text-decoration: underline;
-    }
+/* ===== Container ===== */
+.container {
+  max-width: 880px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
 
-    /* ===== Main Container ===== */
-    .container {
-      max-width: 880px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
+h1 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
 
-    h1 {
-      font-size: 32px;
-      font-weight: normal;
-      margin-bottom: 40px;
-    }
+/* ===== News Item ===== */
+.news-item {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border-color);
+}
 
-    /* ===== News Item ===== */
-    .news-item {
-      display: flex;
-      gap: 26px;
-      padding-bottom: 36px;
-      margin-bottom: 36px;
-      border-bottom: 1px solid var(--border-color);
-    }
+.news-item img {
+  width: 160px;
+  height: auto;
+}
 
-    .news-image {
-      flex: 0 0 180px;
-    }
+.news-content {
+  flex: 1;
+}
 
-    .news-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-    }
+.news-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
 
-    .news-content {
-      flex: 1;
-    }
+.news-title a {
+  color: var(--main-blue);
+  text-decoration: none;
+  border-bottom: 1px solid #f1c40f; /* 黄描边 */
+  padding-bottom: 2px;
+}
 
-    .news-date {
-      font-size: 14px;
-      color: var(--subtext-color);
-      margin-bottom: 6px;
-    }
+.news-title a:hover {
+  opacity: 0.85;
+}
 
-    .news-title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+.news-date {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 6px;
+}
 
-    .news-text {
-      font-size: 16px;
-      color: var(--subtext-color);
-    }
+.news-summary {
+  font-size: 16px;
+  color: var(--subtext-color);
+  line-height: 1.6;
+}
 
-    /* ===== Mobile ===== */
-    @media (max-width: 700px) {
-      .news-item {
-        flex-direction: column;
-      }
+/* ===== Mobile ===== */
+@media (max-width: 700px) {
+  .news-item {
+    flex-direction: column;
+  }
 
-      .news-image {
-        max-width: 100%;
-      }
-    }
-  </style>
+  .news-item img {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="news.html" class="nav-current">News</a>
@@ -125,29 +123,25 @@
 
 <div class="container">
 
-  <h1>News</h1>
+<h1>News</h1>
 
-  <!-- ===== News Item 1 ===== -->
-  <div class="news-item">
-    <div class="news-image">
-      <img src="assets/images/news/2026-postdoc-cuhk.png" alt="CUHK Postdoctoral Position">
-    </div>
-
-    <div class="news-content">
-      <div class="news-date">February 2024</div>
-      <div class="news-title">
+<!-- ===== News 1 ===== -->
+<div class="news-item">
+  <img src="assets/images/news/2026-postdoc-cuhk.png" alt="CUHK">
+  <div class="news-content">
+    <div class="news-date">Feb 2024</div>
+    <div class="news-title">
+      <a href="news/2026-postdoc.html">
         Started Postdoctoral Research at The Chinese University of Hong Kong
-      </div>
-      <div class="news-text">
-        I officially started my postdoctoral position at
-        <b>The Chinese University of Hong Kong (CUHK)</b>.
-        My research focuses on spatiotemporal data analytics,
-        GIS and remote sensing, and urban green and low-carbon development.
-      </div>
+      </a>
+    </div>
+    <div class="news-summary">
+      I officially joined The Chinese University of Hong Kong as a Postdoctoral Researcher,
+      focusing on spatiotemporal data analysis, GIS, and urban sustainability.
     </div>
   </div>
-
 </div>
 
+</div>
 </body>
 </html>
