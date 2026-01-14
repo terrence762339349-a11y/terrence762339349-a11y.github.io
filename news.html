@@ -1,126 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>News | Terrence</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>News | Yinjie He</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-/* ===== 全局 ===== */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: "Georgia", "Times New Roman", serif;
-  color: #0b4f9c;
-  background-color: #ffffff;
-}
+  <style>
+    :root {
+      --main-blue: #0b4f9c;
+      --text-color: #222;
+      --subtext-color: #555;
+      --border-color: #e6e6e6;
+    }
 
-/* ===== 导航栏（与 index.html 保持一致） ===== */
-nav {
-  width: 100%;
-  background-color: rgba(11,79,156,0.9);
-  display: flex;
-  justify-content: center;
-  padding: 12px 0;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-}
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--text-color);
+      background-color: #ffffff;
+      line-height: 1.75;
+    }
 
-nav a {
-  margin: 0 20px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  padding-bottom: 4px;
-}
+    /* ===== Navigation ===== */
+    nav {
+      background-color: var(--main-blue);
+      padding: 14px 0;
+      text-align: center;
+    }
 
-nav a.news-link {
-  font-weight: 700;
-  border-bottom: 2px solid rgba(255,255,255,0.8);
-}
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 16px;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
 
-/* ===== 页面主体 ===== */
-.main {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 140px 24px 60px;
-  box-sizing: border-box;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-/* ===== 标题 ===== */
-.main h1 {
-  font-size: 36px;
-  font-weight: normal;
-  margin-bottom: 40px;
-}
+    .nav-current {
+      font-weight: 700;
+      text-decoration: underline;
+    }
 
-/* ===== 年份 ===== */
-.year {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 36px 0 16px;
-}
+    /* ===== Main Container ===== */
+    .container {
+      max-width: 880px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
 
-/* ===== 新闻列表 ===== */
-.news-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
+    h1 {
+      font-size: 32px;
+      font-weight: normal;
+      margin-bottom: 40px;
+    }
 
-.news-list li {
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
+    /* ===== News Item ===== */
+    .news-item {
+      display: flex;
+      gap: 26px;
+      padding-bottom: 36px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--border-color);
+    }
 
-/* 日期 */
-.news-date {
-  font-weight: 700;
-  margin-right: 6px;
-}
+    .news-image {
+      flex: 0 0 180px;
+    }
 
-/* ===== 手机端 ===== */
-@media (max-width: 768px) {
-  .main {
-    padding: 120px 18px 40px;
-  }
+    .news-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
 
-  .main h1 {
-    font-size: 30px;
-  }
+    .news-content {
+      flex: 1;
+    }
 
-  .year {
-    font-size: 22px;
-  }
-}
-</style>
+    .news-date {
+      font-size: 14px;
+      color: var(--subtext-color);
+      margin-bottom: 6px;
+    }
+
+    .news-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .news-text {
+      font-size: 16px;
+      color: var(--subtext-color);
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 700px) {
+      .news-item {
+        flex-direction: column;
+      }
+
+      .news-image {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ===== 导航栏 ===== -->
+<!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
-  <a href="news.html" class="news-link">News</a>
+  <a href="news.html" class="nav-current">News</a>
   <a href="research.html">Research</a>
   <a href="publications.html">Publications</a>
   <a href="cv.html">CV</a>
 </nav>
 
-<!-- ===== 页面主体 ===== -->
-<div class="main">
+<div class="container">
+
   <h1>News</h1>
 
-  <!-- ===== 2024 ===== -->
-  <div class="year">2024</div>
-  <ul class="news-list">
-    <li>
-      <span class="news-date">Feb 2024</span>
-      Started postdoctoral research at The Chinese University of Hong Kong
-    </li>
-  </ul>
+  <!-- ===== News Item 1 ===== -->
+  <div class="news-item">
+    <div class="news-image">
+      <img src="assets/images/news/2026-postdoc-cuhk.png" alt="CUHK Postdoctoral Position">
+    </div>
+
+    <div class="news-content">
+      <div class="news-date">September 2026</div>
+      <div class="news-title">
+        Started Postdoctoral Research at The Chinese University of Hong Kong
+      </div>
+      <div class="news-text">
+        I officially started my postdoctoral position at
+        <b>The Chinese University of Hong Kong (CUHK)</b>.
+        My research focuses on spatiotemporal data analytics,
+        GIS and remote sensing, and urban green and low-carbon development.
+      </div>
+    </div>
+  </div>
 
 </div>
 
