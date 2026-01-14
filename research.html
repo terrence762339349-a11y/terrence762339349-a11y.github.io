@@ -7,37 +7,51 @@
 
   <style>
     :root {
+      --main-blue: #0b4f9c;
       --text-color: #222;
       --subtext-color: #555;
-      --link-color: #0b4f9c;
       --border-color: #e0e0e0;
     }
 
     body {
       font-family: "Georgia", "Times New Roman", serif;
-      max-width: 880px;
-      margin: 60px auto;
-      padding: 0 20px;
+      margin: 0;
+      padding: 0;
       line-height: 1.75;
       color: var(--text-color);
       background-color: #fff;
     }
 
+    /* ===== Navigation (same as Home / News) ===== */
     nav {
+      background-color: var(--main-blue);
+      padding: 14px 0;
       text-align: center;
-      margin-bottom: 60px;
-      font-size: 15px;
     }
 
     nav a {
-      margin: 0 16px;
-      color: var(--link-color);
+      color: #fff;
       text-decoration: none;
+      margin: 0 16px;
+      font-size: 15px;
       letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    .nav-current {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* ===== Main Content ===== */
+    .container {
+      max-width: 880px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
     h1 {
@@ -58,15 +72,33 @@
     p {
       font-size: 16px;
       margin: 14px 0;
+      color: var(--subtext-color);
     }
 
     ul {
       margin: 10px 0 10px 20px;
+      padding: 0;
     }
 
     li {
-      margin-bottom: 10px;
+      margin-bottom: 14px;
       font-size: 16px;
+      color: var(--subtext-color);
+    }
+
+    li b {
+      color: var(--text-color);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 40px auto;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -76,75 +108,78 @@
 <!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
-  <a href="research.html">Research</a>
+  <a href="news.html">News</a>
+  <a href="research.html" class="nav-current">Research</a>
   <a href="publications.html">Publications</a>
-  <a href="projects.html">Projects</a>
   <a href="cv.html">CV</a>
 </nav>
 
-<h1>Research</h1>
+<div class="container">
 
-<!-- ===== Overview ===== -->
-<h2>Research Overview</h2>
+  <h1>Research</h1>
 
-<p>
-My research focuses on spatiotemporal data analytics and intelligent modeling,
-with applications in GIS and remote sensing, land use and transportation interaction,
-and urban green and low-carbon development.
-I aim to integrate geospatial big data, machine learning, and planning theory
-to support evidence-based urban and regional sustainability policies.
-</p>
+  <!-- ===== Overview ===== -->
+  <h2>Research Overview</h2>
 
-<!-- ===== Research Themes ===== -->
-<h2>Research Themes</h2>
+  <p>
+    My research focuses on spatiotemporal data analytics and intelligent modeling,
+    with applications in GIS and remote sensing, land use and transportation interaction,
+    and urban green and low-carbon development.
+    I aim to integrate geospatial big data, machine learning, and planning theory
+    to support evidence-based urban and regional sustainability policies.
+  </p>
 
-<ul>
-  <li>
-    <b>Spatiotemporal Data Analytics and Intelligent Modeling</b><br>
-    Development of high-reliability spatiotemporal data processing methods and
-    intelligent models for urban systems analysis.
-  </li>
+  <!-- ===== Research Themes ===== -->
+  <h2>Research Themes</h2>
 
-  <li>
-    <b>GIS and Remote Sensing Applications</b><br>
-    Multi-source remote sensing data fusion for land use/cover change detection,
-    ecological risk assessment, and environmental monitoring.
-  </li>
+  <ul>
+    <li>
+      <b>Spatiotemporal Data Analytics and Intelligent Modeling</b><br>
+      Development of high-reliability spatiotemporal data processing methods and
+      intelligent models for urban systems analysis.
+    </li>
 
-  <li>
-    <b>Land Use and Transportation Interaction</b><br>
-    Quantitative analysis of the coupling mechanisms between transportation infrastructure
-    and land use evolution, with a focus on rail transit systems.
-  </li>
+    <li>
+      <b>GIS and Remote Sensing Applications</b><br>
+      Multi-source remote sensing data fusion for land use/cover change detection,
+      ecological risk assessment, and environmental monitoring.
+    </li>
 
-  <li>
-    <b>Urban Sustainability and Low-Carbon Development</b><br>
-    Integrated assessment of green and low-carbon development in megacities,
-    including carbon source–sink accounting and socio-natural system coupling optimization.
-  </li>
-</ul>
+    <li>
+      <b>Land Use and Transportation Interaction</b><br>
+      Quantitative analysis of the coupling mechanisms between transportation infrastructure
+      and land use evolution, with a focus on rail transit systems.
+    </li>
 
-<!-- ===== Major Projects ===== -->
-<h2>Major Research Projects</h2>
+    <li>
+      <b>Urban Sustainability and Low-Carbon Development</b><br>
+      Integrated assessment of green and low-carbon development in megacities,
+      including carbon source–sink accounting and socio-natural system coupling optimization.
+    </li>
+  </ul>
 
-<ul>
-  <li>
-    <b>National Key R&D Program of China (2022YFB3903700)</b><br>
-    <i>Monitoring, Diagnostic Optimization, and Application Demonstration of Green
-    and Low-Carbon Development in Megacities</i><br>
-    Role: Core researcher; responsible for green and low-carbon development diagnosis
-    and socio-natural system coupling optimization.
-  </li>
+  <!-- ===== Major Projects ===== -->
+  <h2>Major Research Projects</h2>
 
-  <li>
-    <b>National Key R&D Program of China (2018YFE0101000)</b><br>
-    <i>High-Confidence Key Technologies and Applications of Spatiotemporal Data
-    in BRICS Countries</i><br>
-    Role: Researcher; responsible for spatiotemporal data processing and intelligent
-    model development.
-  </li>
+  <ul>
+    <li>
+      <b>National Key R&D Program of China (2022YFB3903700)</b><br>
+      <i>Monitoring, Diagnostic Optimization, and Application Demonstration of Green
+      and Low-Carbon Development in Megacities</i><br>
+      Role: Core researcher; responsible for green and low-carbon development diagnosis
+      and socio-natural system coupling optimization.
+    </li>
 
-</ul>
+    <li>
+      <b>National Key R&D Program of China (2018YFE0101000)</b><br>
+      <i>High-Confidence Key Technologies and Applications of Spatiotemporal Data
+      in BRICS Countries</i><br>
+      Role: Researcher; responsible for spatiotemporal data processing and intelligent
+      model development.
+    </li>
+  </ul>
+
+</div>
 
 </body>
 </html>
