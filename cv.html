@@ -7,37 +7,51 @@
 
   <style>
     :root {
+      --main-blue: #0b4f9c;
       --text-color: #222;
       --subtext-color: #555;
-      --link-color: #0b4f9c;
       --border-color: #e0e0e0;
     }
 
     body {
       font-family: "Georgia", "Times New Roman", serif;
-      max-width: 880px;
-      margin: 60px auto;
-      padding: 0 20px;
+      margin: 0;
+      padding: 0;
       line-height: 1.75;
       color: var(--text-color);
       background-color: #fff;
     }
 
+    /* ===== Navigation ===== */
     nav {
+      background-color: var(--main-blue);
+      padding: 14px 0;
       text-align: center;
-      margin-bottom: 60px;
-      font-size: 15px;
     }
 
     nav a {
-      margin: 0 16px;
-      color: var(--link-color);
+      color: #ffffff;
       text-decoration: none;
+      margin: 0 16px;
+      font-size: 15px;
       letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    .nav-current {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* ===== Main Container ===== */
+    .container {
+      max-width: 880px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
     h1 {
@@ -58,6 +72,7 @@
     p {
       font-size: 16px;
       margin: 12px 0;
+      color: var(--subtext-color);
     }
 
     ul {
@@ -65,23 +80,40 @@
     }
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-size: 16px;
+      color: var(--subtext-color);
     }
 
+    li b {
+      color: var(--text-color);
+    }
+
+    /* ===== Download ===== */
     .download {
-      margin-top: 20px;
+      margin-top: 16px;
       font-size: 16px;
     }
 
     .download a {
-      color: var(--link-color);
+      color: var(--main-blue);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     .download a:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 40px auto;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -91,67 +123,76 @@
 <!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
+  <a href="news.html">News</a>
   <a href="research.html">Research</a>
   <a href="publications.html">Publications</a>
-  <a href="projects.html">Projects</a>
-  <a href="cv.html">CV</a>
+  <a href="cv.html" class="nav-current">CV</a>
 </nav>
 
-<!-- ===== Header ===== -->
-<h1>Curriculum Vitae</h1>
+<div class="container">
 
-<p class="download">
-📄 <a href="Yinjie_He_CV.pdf" target="_blank">Download CV (PDF)</a>
-</p>
+  <!-- ===== Header ===== -->
+  <h1>Curriculum Vitae</h1>
 
-<!-- ===== Education ===== -->
-<h2>Education</h2>
+  <p class="download">
+    📄 <a href="Yinjie_He_CV.pdf" target="_blank">Download CV (PDF)</a>
+  </p>
 
-<ul>
-  <li>
-    <b>Ph.D. in Land Resource Management</b>, Renmin University of China, 2019–2023<br>
-    Dissertation: <i>Ecological and Environmental Risks of Land Use/Cover Change
-    along the Belt and Road Initiative</i>
-  </li>
-  <li>
-    <b>Visiting Ph.D. Student</b>, Lund University, Sweden, 2021–2022
-  </li>
-  <li>
-    <b>M.S. in Land Resource Management</b>, Guangzhou University, 2016–2019
-  </li>
-  <li>
-    <b>B.S. in Land Resource Management</b>, Nanning Normal University, 2012–2016
-  </li>
-</ul>
+  <!-- ===== Education ===== -->
+  <h2>Education</h2>
 
-<!-- ===== Academic Positions ===== -->
-<h2>Academic Positions</h2>
+  <ul>
+    <li>
+      <b>Ph.D. in Land Resource Management</b>, Renmin University of China, 2019–2023<br>
+      Dissertation: <i>Ecological and Environmental Risks of Land Use/Cover Change
+      along the Belt and Road Initiative</i>
+    </li>
+    <li>
+      <b>Visiting Ph.D. Student</b>, Lund University, Sweden, 2021–2022
+    </li>
+    <li>
+      <b>M.S. in Land Resource Management</b>, Guangzhou University, 2016–2019
+    </li>
+    <li>
+      <b>B.S. in Land Resource Management</b>, Nanning Normal University, 2012–2016
+    </li>
+  </ul>
 
-<ul>
-  <li>
-    <b>Postdoctoral Researcher</b>, The Chinese University of Hong Kong,
-    2024–Present
-  </li>
-</ul>
+  <!-- ===== Academic Positions ===== -->
+  <h2>Academic Positions</h2>
 
-<!-- ===== Research Interests ===== -->
-<h2>Research Interests</h2>
+  <ul>
+    <li>
+      <b>Postdoctoral Researcher</b>, The Chinese University of Hong Kong, 2024–Present
+    </li>
+  </ul>
 
-<ul>
-  <li>Spatiotemporal data analytics and intelligent modeling</li>
-  <li>GIS and remote sensing applications</li>
-  <li>Land use and transportation interaction</li>
-  <li>Urban sustainability and low-carbon development</li>
-</ul>
+  <!-- ===== Research Interests ===== -->
+  <h2>Research Interests</h2>
 
-<!-- ===== Honors & Awards ===== -->
-<h2>Honors & Awards</h2>
+  <ul>
+    <li>Spatiotemporal data analytics and intelligent modeling</li>
+    <li>GIS and remote sensing applications</li>
+    <li>Land use and transportation interaction</li>
+    <li>Urban sustainability and low-carbon development</li>
+  </ul>
 
-<ul>
-  <li>Excellent Paper Award, International Conference on Energy, Environment and Sustainable Development, 2017</li>
-  <li>Academic Excellence Scholarship, Renmin University of China, 2020–2021</li>
-  <li>Merit Student Award, Renmin University of China, 2020–2022</li>
-</ul>
+  <!-- ===== Honors & Awards ===== -->
+  <h2>Honors & Awards</h2>
+
+  <ul>
+    <li>
+      Excellent Paper Award, International Conference on Energy, Environment and Sustainable Development, 2017
+    </li>
+    <li>
+      Academic Excellence Scholarship, Renmin University of China, 2020–2021
+    </li>
+    <li>
+      Merit Student Award, Renmin University of China, 2020–2022
+    </li>
+  </ul>
+
+</div>
 
 </body>
 </html>
