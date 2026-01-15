@@ -20,6 +20,22 @@
       line-height: 1.75;
       color: var(--text-color);
       background-color: #ffffff;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ===== Right Background Photo (1/3 Screen) ===== */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 33vw;
+      height: 100vh;
+      background:
+        linear-gradient(to left, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 25%, rgba(255,255,255,0.25) 60%, rgba(255,255,255,0) 100%),
+        url("assets/images/cv-bg.jpg") center center / cover no-repeat;
+      z-index: -1;
     }
 
     /* ===== Navigation ===== */
@@ -27,6 +43,8 @@
       background-color: var(--main-blue);
       padding: 14px 0;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     nav a {
@@ -51,6 +69,8 @@
       max-width: 900px;
       margin: 60px auto;
       padding: 0 20px;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -142,6 +162,13 @@
       margin-bottom: 10px;
       font-size: 16px;
       color: var(--subtext-color);
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 900px) {
+      body::after {
+        display: none;
+      }
     }
 
     @media (max-width: 600px) {
