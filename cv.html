@@ -16,6 +16,7 @@
 body {
   font-family: "Georgia", "Times New Roman", serif;
   margin: 0;
+  padding: 0;
   line-height: 1.75;
   color: var(--text-color);
   background-color: #ffffff;
@@ -33,6 +34,11 @@ nav a {
   text-decoration: none;
   margin: 0 16px;
   font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 .nav-current {
@@ -42,7 +48,7 @@ nav a {
 
 /* ===== Container ===== */
 .container {
-  max-width: 900px;
+  max-width: 880px;
   margin: 60px auto;
   padding: 0 20px;
 }
@@ -50,84 +56,104 @@ nav a {
 h1 {
   font-size: 32px;
   font-weight: normal;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 h2 {
   font-size: 22px;
   font-weight: normal;
-  margin-top: 60px;
-  margin-bottom: 24px;
+  margin-top: 52px;
+  margin-bottom: 18px;
   padding-bottom: 6px;
   border-bottom: 1px solid var(--border-color);
 }
 
 /* ===== Download ===== */
 .download {
-  margin-top: 16px;
+  margin-bottom: 28px;
+  font-size: 16px;
 }
 
 .download a {
   color: var(--main-blue);
-  font-weight: 600;
   text-decoration: none;
+  font-weight: 600;
 }
 
-/* ===== CV Item (News-style) ===== */
-.cv-item {
+.download a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Education & Position Items ===== */
+.edu-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.edu-item {
   display: flex;
-  gap: 28px;
   align-items: flex-start;
-  margin-bottom: 36px;
+  gap: 18px;
+  margin-bottom: 22px;
 }
 
-.cv-logo {
-  text-align: center;
-  min-width: 90px;
-}
-
-.cv-logo img {
+.edu-logo {
   width: 64px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.edu-logo img {
+  width: 56px;
   height: auto;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.cv-rank {
-  font-size: 12px;
+.edu-rank {
   margin-top: 6px;
+  font-size: 12px;
   color: #777;
+  letter-spacing: 0.4px;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.cv-content {
+.edu-text {
   font-size: 16px;
   color: var(--subtext-color);
 }
 
-.cv-content b {
+.edu-text b {
   color: var(--text-color);
 }
 
-/* ===== Honors ===== */
-ul.honors {
-  padding-left: 18px;
+/* ===== Hover (Subtle) ===== */
+.edu-item:hover .edu-logo img {
+  transform: scale(1.03);
+  filter: brightness(1.08);
 }
 
-ul.honors li {
-  margin-bottom: 10px;
-  color: var(--subtext-color);
+.edu-item:hover .edu-rank {
+  transform: translateY(-2px);
+  color: #333;
 }
 
 /* ===== Mobile ===== */
 @media (max-width: 600px) {
-  .cv-item {
-    gap: 20px;
+  .container {
+    margin: 40px auto;
   }
 
-  .cv-logo {
-    min-width: 70px;
+  .edu-item {
+    gap: 14px;
   }
 
-  .cv-logo img {
-    width: 54px;
+  .edu-logo {
+    width: 56px;
+  }
+
+  .edu-logo img {
+    width: 48px;
   }
 }
 </style>
@@ -135,6 +161,7 @@ ul.honors li {
 
 <body>
 
+<!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="news/">News</a>
@@ -154,64 +181,68 @@ ul.honors li {
 <!-- ===== Education ===== -->
 <h2>Education</h2>
 
-<div class="cv-item">
-  <div class="cv-logo">
-    <img src="assets/images/cv/logo-ruc.png">
-    <div class="cv-rank">Top 5</div>
-  </div>
-  <div class="cv-content">
-    <b>Ph.D. in Land Resource Management</b>, Renmin University of China, 2019–2023<br>
-    Dissertation: <i>Ecological and Environmental Risks of Land Use/Cover Change
-    along the Belt and Road Initiative</i>
-  </div>
-</div>
+<ul class="edu-list">
+  <li class="edu-item">
+    <div class="edu-logo">
+      <img src="assets/images/cv/logo-ruc.png" alt="Renmin University">
+      <div class="edu-rank">Top 5</div>
+    </div>
+    <div class="edu-text">
+      <b>Ph.D. in Land Resource Management</b>, Renmin University of China, 2019–2023<br>
+      Dissertation: <i>Ecological and Environmental Risks of Land Use/Cover Change
+      along the Belt and Road Initiative</i>
+    </div>
+  </li>
 
-<div class="cv-item">
-  <div class="cv-logo">
-    <img src="assets/images/cv/logo-lund.png">
-    <div class="cv-rank">QS 72</div>
-  </div>
-  <div class="cv-content">
-    <b>Visiting Ph.D. Student</b>, Lund University, Sweden, 2021–2022
-  </div>
-</div>
+  <li class="edu-item">
+    <div class="edu-logo">
+      <img src="assets/images/cv/logo-lund.png" alt="Lund University">
+      <div class="edu-rank">QS 72</div>
+    </div>
+    <div class="edu-text">
+      <b>Visiting Ph.D. Student</b>, Lund University, Sweden, 2021–2022
+    </div>
+  </li>
 
-<div class="cv-item">
-  <div class="cv-logo">
-    <img src="assets/images/cv/logo-gzhu.png">
-    <div class="cv-rank">Top 100</div>
-  </div>
-  <div class="cv-content">
-    <b>M.S. in Land Resource Management</b>, Guangzhou University, 2016–2019
-  </div>
-</div>
+  <li class="edu-item">
+    <div class="edu-logo">
+      <img src="assets/images/cv/logo-gzhu.png" alt="Guangzhou University">
+      <div class="edu-rank">Top 100</div>
+    </div>
+    <div class="edu-text">
+      <b>M.S. in Land Resource Management</b>, Guangzhou University, 2016–2019
+    </div>
+  </li>
 
-<div class="cv-item">
-  <div class="cv-logo">
-    <img src="assets/images/cv/logo-nnnu.png">
-  </div>
-  <div class="cv-content">
-    <b>B.S. in Land Resource Management</b>, Nanning Normal University, 2012–2016
-  </div>
-</div>
+  <li class="edu-item">
+    <div class="edu-logo">
+      <img src="assets/images/cv/logo-nnnu.png" alt="Nanning Normal University">
+    </div>
+    <div class="edu-text">
+      <b>B.S. in Land Resource Management</b>, Nanning Normal University, 2012–2016
+    </div>
+  </li>
+</ul>
 
 <!-- ===== Academic Positions ===== -->
 <h2>Academic Positions</h2>
 
-<div class="cv-item">
-  <div class="cv-logo">
-    <img src="assets/images/cv/logo-cuhk.png">
-    <div class="cv-rank">QS 32</div>
-  </div>
-  <div class="cv-content">
-    <b>Postdoctoral Researcher</b>, The Chinese University of Hong Kong, 2024–Present
-  </div>
-</div>
+<ul class="edu-list">
+  <li class="edu-item">
+    <div class="edu-logo">
+      <img src="assets/images/cv/logo-cuhk.png" alt="CUHK">
+      <div class="edu-rank">QS 32</div>
+    </div>
+    <div class="edu-text">
+      <b>Postdoctoral Researcher</b>, The Chinese University of Hong Kong, 2024–Present
+    </div>
+  </li>
+</ul>
 
 <!-- ===== Honors ===== -->
 <h2>Honors & Awards</h2>
 
-<ul class="honors">
+<ul>
   <li>Excellent Paper Award, International Conference on Energy, Environment and Sustainable Development, 2017</li>
   <li>Academic Excellence Scholarship, Renmin University of China, 2020–2021</li>
   <li>Merit Student Award, Renmin University of China, 2020–2022</li>
