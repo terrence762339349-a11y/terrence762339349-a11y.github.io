@@ -1,106 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Research | Yinjie He</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Research | Yinjie He</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root {
-      --main-blue: #0b4f9c;
-      --text-color: #222;
-      --subtext-color: #555;
-      --border-color: #e0e0e0;
-    }
+<style>
+:root {
+  --main-blue: #0b4f9c;
+}
 
-    body {
-      font-family: "Georgia", "Times New Roman", serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.75;
-      color: var(--text-color);
-      background-color: #fff;
-    }
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #222;
+}
 
-    /* ===== Navigation (same as Home / News) ===== */
-    nav {
-      background-color: var(--main-blue);
-      padding: 14px 0;
-      text-align: center;
-    }
+/* ===== Navigation ===== */
+nav {
+  background-color: var(--main-blue);
+  padding: 14px 0;
+  text-align: center;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 16px;
-      font-size: 15px;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-    }
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 16px;
+  font-size: 15px;
+}
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+nav a:hover {
+  text-decoration: underline;
+}
 
-    .nav-current {
-      font-weight: 700;
-      text-decoration: underline;
-    }
+/* ===== Hero Section ===== */
+.hero {
+  height: 100vh;
+  background: url("assets/images/research/research-hero.jpg") center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
 
-    /* ===== Main Content ===== */
-    .container {
-      max-width: 880px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
 
-    h1 {
-      font-size: 32px;
-      font-weight: normal;
-      margin-bottom: 10px;
-    }
+.hero-content {
+  position: relative;
+  color: #fff;
+  z-index: 1;
+}
 
-    h2 {
-      font-size: 22px;
-      font-weight: normal;
-      margin-top: 50px;
-      margin-bottom: 16px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-color);
-    }
+.hero h1 {
+  font-size: 48px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
 
-    p {
-      font-size: 16px;
-      margin: 14px 0;
-      color: var(--subtext-color);
-    }
+.scroll-btn {
+  display: inline-block;
+  border: 1.5px solid #fff;
+  padding: 10px 28px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #fff;
+  cursor: pointer;
+}
 
-    ul {
-      margin: 10px 0 10px 20px;
-      padding: 0;
-    }
+.scroll-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
 
-    li {
-      margin-bottom: 14px;
-      font-size: 16px;
-      color: var(--subtext-color);
-    }
+/* ===== Research Themes ===== */
+.section {
+  max-width: 1100px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
 
-    li b {
-      color: var(--text-color);
-    }
+.section h2 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 50px;
+  text-align: center;
+}
 
-    @media (max-width: 600px) {
-      .container {
-        margin: 40px auto;
-      }
+.themes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+}
 
-      nav a {
-        margin: 0 10px;
-        font-size: 14px;
-      }
-    }
-  </style>
+.theme {
+  text-align: center;
+}
+
+.theme img {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.theme h3 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 18px;
+  color: var(--main-blue);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .themes {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -109,77 +136,47 @@
 <nav>
   <a href="index.html">Home</a>
   <a href="news/">News</a>
-  <a href="research.html" class="nav-current">Research</a>
+  <a href="research.html">Research</a>
   <a href="publications.html">Publications</a>
   <a href="cv.html">CV</a>
 </nav>
 
-<div class="container">
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Research Overview</h1>
+    <div class="scroll-btn" onclick="document.getElementById('themes').scrollIntoView({behavior:'smooth'})">
+      Explore Research
+    </div>
+  </div>
+</section>
 
-  <h1>Research</h1>
-
-  <!-- ===== Overview ===== -->
-  <h2>Research Overview</h2>
-
-  <p>
-    My research focuses on spatiotemporal data analytics and intelligent modeling,
-    with applications in GIS and remote sensing, land use and transportation interaction,
-    and urban green and low-carbon development.
-    I aim to integrate geospatial big data, machine learning, and planning theory
-    to support evidence-based urban and regional sustainability policies.
-  </p>
-
-  <!-- ===== Research Themes ===== -->
+<!-- ===== Research Themes ===== -->
+<section class="section" id="themes">
   <h2>Research Themes</h2>
 
-  <ul>
-    <li>
-      <b>Spatiotemporal Data Analytics and Intelligent Modeling</b><br>
-      Development of high-reliability spatiotemporal data processing methods and
-      intelligent models for urban systems analysis.
-    </li>
+  <div class="themes">
+    <div class="theme">
+      <img src="assets/images/research/theme-spatiotemporal.jpg" alt="">
+      <h3>Spatiotemporal Data Analytics</h3>
+    </div>
 
-    <li>
-      <b>GIS and Remote Sensing Applications</b><br>
-      Multi-source remote sensing data fusion for land use/cover change detection,
-      ecological risk assessment, and environmental monitoring.
-    </li>
+    <div class="theme">
+      <img src="assets/images/research/theme-gis-remote-sensing.jpg" alt="">
+      <h3>GIS and Remote Sensing</h3>
+    </div>
 
-    <li>
-      <b>Land Use and Transportation Interaction</b><br>
-      Quantitative analysis of the coupling mechanisms between transportation infrastructure
-      and land use evolution, with a focus on rail transit systems.
-    </li>
+    <div class="theme">
+      <img src="assets/images/research/theme-land-transport.jpg" alt="">
+      <h3>Land–Transportation Interaction</h3>
+    </div>
 
-    <li>
-      <b>Urban Sustainability and Low-Carbon Development</b><br>
-      Integrated assessment of green and low-carbon development in megacities,
-      including carbon source–sink accounting and socio-natural system coupling optimization.
-    </li>
-  </ul>
-
-  <!-- ===== Major Projects ===== -->
-  <h2>Major Research Projects</h2>
-
-  <ul>
-    <li>
-      <b>National Key R&D Program of China (2022YFB3903700)</b><br>
-      <i>Monitoring, Diagnostic Optimization, and Application Demonstration of Green
-      and Low-Carbon Development in Megacities</i><br>
-      Role: Core researcher; responsible for green and low-carbon development diagnosis
-      and socio-natural system coupling optimization.
-    </li>
-
-    <li>
-      <b>National Key R&D Program of China (2018YFE0101000)</b><br>
-      <i>High-Confidence Key Technologies and Applications of Spatiotemporal Data
-      in BRICS Countries</i><br>
-      Role: Researcher; responsible for spatiotemporal data processing and intelligent
-      model development.
-    </li>
-  </ul>
-
-</div>
+    <div class="theme">
+      <img src="assets/images/research/theme-urban-sustainability.jpg" alt="">
+      <h3>Urban Sustainability & Low-Carbon Development</h3>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
