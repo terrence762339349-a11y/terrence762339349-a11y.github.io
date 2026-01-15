@@ -14,7 +14,7 @@ body {
   margin: 0;
   font-family: "Georgia", "Times New Roman", serif;
   color: #222;
-  line-height: 1.75;
+  background: #ffffff;
 }
 
 /* ===== Navigation ===== */
@@ -31,80 +31,98 @@ nav a {
   font-size: 15px;
 }
 
-/* ===== Hero ===== */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Hero Section ===== */
 .hero {
   height: 100vh;
   background: url("assets/images/research/research-hero.jpg") center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   text-align: center;
+  position: relative;
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.42);
+  background: rgba(0,0,0,0.38);
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
-  max-width: 820px;
-  padding: 0 24px;
   color: #fff;
+  z-index: 1;
+  max-width: 760px;
+  padding: 0 20px;
   animation: fadeUp 1.2s ease forwards;
 }
 
 .hero h1 {
   font-size: 48px;
   font-weight: normal;
-  margin-bottom: 26px;
   letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 18px;
-  opacity: 0.95;
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 40px;
 }
 
 /* ===== Explore Button ===== */
-.explore-btn {
+.scroll-btn {
   display: inline-block;
-  margin-top: 36px;
-  padding: 12px 34px;
   border: 1.5px solid #ffffff;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 15px;
+  padding: 10px 22px;
+  font-size: 13px;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.explore-btn:hover {
-  background-color: #ffffff;
-  color: #000;
+.scroll-btn:hover {
+  background: rgba(255,255,255,0.18);
 }
 
 /* ===== Sections ===== */
 .section {
-  max-width: 1000px;
-  margin: 100px auto;
+  max-width: 1100px;
+  margin: 110px auto;
   padding: 0 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
 }
 
 .section h2 {
   font-size: 32px;
   font-weight: normal;
-  margin-bottom: 50px;
+  margin-bottom: 26px;
+  text-align: center;
 }
 
-/* ===== Themes ===== */
+.section-intro {
+  max-width: 760px;
+  margin: 0 auto 70px;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+  color: #444;
+}
+
+/* ===== Research Themes ===== */
 .themes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 70px 80px;
 }
 
@@ -116,49 +134,39 @@ nav a {
 
 .theme img {
   width: 90px;
-  height: auto;
-  border: 1px solid #e0e0e0;
-  padding: 4px;
-  background: #fff;
-  filter: grayscale(100%) contrast(0.9);
-  opacity: 0.85;
-  transition: all 0.3s ease;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
-.theme:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-.theme-text h3 {
-  margin: 0 0 8px 0;
+.theme h3 {
   font-size: 20px;
   font-weight: normal;
+  margin: 0 0 10px;
   color: var(--main-blue);
 }
 
-.theme-text p {
-  margin: 0;
-  font-size: 16px;
-  color: #444;
+.theme p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
 }
 
-/* ===== Projects ===== */
-.projects ul {
-  margin-left: 20px;
+/* ===== Major Projects ===== */
+.projects {
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #333;
 }
 
-.projects li {
-  margin-bottom: 20px;
-  font-size: 16px;
-}
-
-/* ===== Animations ===== */
+/* ===== Animation ===== */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -172,16 +180,12 @@ nav a {
     font-size: 34px;
   }
 
-  .hero p {
-    font-size: 16px;
-  }
-
   .themes {
     grid-template-columns: 1fr;
   }
 
   .theme {
-    align-items: center;
+    gap: 20px;
   }
 }
 </style>
@@ -189,6 +193,7 @@ nav a {
 
 <body>
 
+<!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="news/">News</a>
@@ -197,82 +202,88 @@ nav a {
   <a href="cv.html">CV</a>
 </nav>
 
+<!-- ===== Hero ===== -->
 <section class="hero">
   <div class="hero-content">
     <h1>Research Overview</h1>
     <p>
-      My research focuses on spatiotemporal data analytics and intelligent modeling,
-      with applications in GIS and remote sensing, land use and transportation interaction,
-      and urban green and low-carbon development.
+      My research focuses on urban and regional systems through spatial data science,
+      geospatial technologies, and planning-oriented analytical frameworks,
+      with particular attention to sustainability and low-carbon transitions.
     </p>
-    <a href="#themes" class="explore-btn">EXPLORE</a>
+    <div class="scroll-btn"
+      onclick="document.getElementById('themes').scrollIntoView({behavior:'smooth'})">
+      Explore Research
+    </div>
   </div>
 </section>
 
+<!-- ===== Research Themes ===== -->
 <section class="section" id="themes">
   <h2>Research Themes</h2>
 
+  <div class="section-intro">
+    My research integrates spatial analytics, GIS-based modeling, and planning theory
+    to investigate the mechanisms, patterns, and policy implications of urban development.
+  </div>
+
   <div class="themes">
+
     <div class="theme">
-      <img src="assets/images/research/paper-spatiotemporal.jpg" alt="">
-      <div class="theme-text">
-        <h3>Spatiotemporal Data Analytics and Intelligent Modeling</h3>
+      <img src="assets/images/research/theme-spatiotemporal.jpg" alt="">
+      <div>
+        <h3>Spatiotemporal Data Analytics</h3>
         <p>
-          High-reliability spatiotemporal data processing and intelligent modeling
-          for complex urban systems.
+          Spatiotemporal modeling and big data analytics to reveal dynamic urban processes
+          and regional evolution patterns.
         </p>
       </div>
     </div>
 
     <div class="theme">
-      <img src="assets/images/research/paper-gis.jpg" alt="">
-      <div class="theme-text">
-        <h3>GIS and Remote Sensing Applications</h3>
+      <img src="assets/images/research/theme-gis-remote-sensing.jpg" alt="">
+      <div>
+        <h3>GIS and Remote Sensing</h3>
         <p>
-          Multi-source remote sensing data fusion for land use change detection
-          and ecological risk assessment.
+          GIS-based spatial analysis and remote sensing techniques for land use,
+          environmental monitoring, and urban dynamics assessment.
         </p>
       </div>
     </div>
 
     <div class="theme">
-      <img src="assets/images/research/paper-transport.jpg" alt="">
-      <div class="theme-text">
-        <h3>Land Use and Transportation Interaction</h3>
+      <img src="assets/images/research/theme-land-transport.jpg" alt="">
+      <div>
+        <h3>Land–Transportation Interaction</h3>
         <p>
-          Coupling mechanisms between transportation infrastructure
-          and land use evolution.
+          Integrated analysis of land use and transportation systems,
+          focusing on spatial coupling mechanisms and planning implications.
         </p>
       </div>
     </div>
 
     <div class="theme">
-      <img src="assets/images/research/paper-sustainability.jpg" alt="">
-      <div class="theme-text">
-        <h3>Urban Sustainability and Low-Carbon Development</h3>
+      <img src="assets/images/research/theme-urban-sustainability.jpg" alt="">
+      <div>
+        <h3>Urban Sustainability & Low-Carbon Development</h3>
         <p>
-          Integrated assessment of green and low-carbon development
-          in megacities.
+          Assessment frameworks and policy evaluation for green, low-carbon,
+          and sustainable urban development pathways.
         </p>
       </div>
     </div>
+
   </div>
 </section>
 
-<section class="section projects">
+<!-- ===== Major Research Projects ===== -->
+<section class="section">
   <h2>Major Research Projects</h2>
-  <ul>
-    <li>
-      <b>National Key R&amp;D Program of China (2022YFB3903700)</b><br>
-      Monitoring, Diagnostic Optimization, and Application Demonstration of
-      Green and Low-Carbon Development in Megacities.
-    </li>
-    <li>
-      <b>National Key R&amp;D Program of China (2018YFE0101000)</b><br>
-      High-Confidence Key Technologies and Applications of Spatiotemporal Data
-      in BRICS Countries.
-    </li>
-  </ul>
+  <div class="projects">
+    Selected national and regional research projects focusing on
+    green and low-carbon development, urban spatial optimization,
+    and socio-natural system coupling in megacities.
+  </div>
 </section>
 
 </body>
