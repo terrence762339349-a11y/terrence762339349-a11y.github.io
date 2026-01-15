@@ -19,7 +19,7 @@
       padding: 0;
       line-height: 1.75;
       color: var(--text-color);
-      background-color: #ffffff;
+      background-color: #fff;
     }
 
     /* ===== Navigation ===== */
@@ -34,6 +34,7 @@
       text-decoration: none;
       margin: 0 16px;
       font-size: 15px;
+      letter-spacing: 0.5px;
       white-space: nowrap;
     }
 
@@ -46,31 +47,29 @@
       text-decoration: underline;
     }
 
-    /* ===== Container ===== */
+    /* ===== Main Container ===== */
     .container {
-      max-width: 900px;
+      max-width: 880px;
       margin: 60px auto;
       padding: 0 20px;
     }
 
-    h1 {
+    /* ===== CV Header with Photo ===== */
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .cv-header-text h1 {
       font-size: 32px;
       font-weight: normal;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    h2 {
-      font-size: 22px;
-      font-weight: normal;
-      margin-top: 56px;
-      margin-bottom: 18px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    /* ===== Download ===== */
     .download {
-      margin-bottom: 30px;
       font-size: 16px;
     }
 
@@ -84,73 +83,66 @@
       text-decoration: underline;
     }
 
-    /* ===== Timeline List ===== */
-    .edu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
+    .cv-photo {
+      width: 180px;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeInPhoto 0.8s ease-out forwards;
     }
 
-    .edu-item {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
+    .cv-photo img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
     }
 
-    .edu-logo {
-      width: 58px;
-      text-align: center;
-      flex-shrink: 0;
-      transition: transform 0.25s ease;
+    @keyframes fadeInPhoto {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .edu-logo img {
-      width: 42px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+    /* ===== Section Titles ===== */
+    h2 {
+      font-size: 22px;
+      font-weight: normal;
+      margin-top: 50px;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-color);
     }
 
-    .edu-logo span {
-      display: block;
-      font-size: 12px;
-      color: #888;
-      margin-top: 6px;
-      line-height: 1.2;
-    }
-
-    .edu-logo:hover {
-      transform: translateY(-2px);
-    }
-
-    .edu-content {
+    p {
       font-size: 16px;
+      margin: 12px 0;
       color: var(--subtext-color);
     }
 
-    .edu-content b {
-      color: var(--text-color);
+    ul {
+      margin: 10px 0 10px 20px;
     }
 
-    /* ===== Honors ===== */
-    ul.honor-list {
-      margin: 10px 0 0 20px;
-      padding: 0;
-    }
-
-    ul.honor-list li {
+    li {
       margin-bottom: 10px;
       font-size: 16px;
       color: var(--subtext-color);
     }
 
-    @media (max-width: 600px) {
-      .edu-item {
-        gap: 14px;
+    li b {
+      color: var(--text-color);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 700px) {
+      .cv-header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
       }
 
-      .edu-logo {
-        width: 48px;
+      .cv-photo {
+        width: 160px;
       }
     }
   </style>
@@ -169,82 +161,72 @@
 
 <div class="container">
 
-  <h1>Curriculum Vitae</h1>
+  <!-- ===== Header ===== -->
+  <div class="cv-header">
+    <div class="cv-header-text">
+      <h1>Curriculum Vitae</h1>
+      <p class="download">
+        📄 <a href="Yinjie_He_CV.pdf" target="_blank">Download CV (PDF)</a>
+      </p>
+    </div>
 
-  <p class="download">
-    📄 <a href="Yinjie_He_CV.pdf" target="_blank">Download CV (PDF)</a>
-  </p>
+    <div class="cv-photo">
+      <img src="assets/images/cv-photo.jpg" alt="Yinjie He">
+    </div>
+  </div>
 
   <!-- ===== Education ===== -->
   <h2>Education</h2>
 
-  <div class="edu-list">
-
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-ruc.png" alt="Renmin University">
-        <span>Top 5</span>
-      </div>
-      <div class="edu-content">
-        <b>Ph.D. in Land Resource Management</b>, Renmin University of China, 2019–2023<br>
-        Dissertation: <i>Ecological and Environmental Risks of Land Use/Cover Change
-        along the Belt and Road Initiative</i>
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-lund.png" alt="Lund University">
-        <span>QS 72</span>
-      </div>
-      <div class="edu-content">
-        <b>Visiting Ph.D. Student</b>, Lund University, Sweden, 2021–2022
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-gzhu.png" alt="Guangzhou University">
-        <span>Top 100</span>
-      </div>
-      <div class="edu-content">
-        <b>M.S. in Land Resource Management</b>, Guangzhou University, 2016–2019
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-nnnu.png" alt="Nanning Normal University">
-      </div>
-      <div class="edu-content">
-        <b>B.S. in Land Resource Management</b>, Nanning Normal University, 2012–2016
-      </div>
-    </div>
-
-  </div>
+  <ul>
+    <li>
+      <b>Ph.D. in Land Resource Management</b>, Renmin University of China, 2019–2023<br>
+      Dissertation: <i>Ecological and Environmental Risks of Land Use/Cover Change
+      along the Belt and Road Initiative</i>
+    </li>
+    <li>
+      <b>Visiting Ph.D. Student</b>, Lund University, Sweden, 2021–2022
+    </li>
+    <li>
+      <b>M.S. in Land Resource Management</b>, Guangzhou University, 2016–2019
+    </li>
+    <li>
+      <b>B.S. in Land Resource Management</b>, Nanning Normal University, 2012–2016
+    </li>
+  </ul>
 
   <!-- ===== Academic Positions ===== -->
   <h2>Academic Positions</h2>
 
-  <div class="edu-list">
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-cuhk.png" alt="CUHK">
-        <span>QS 32</span>
-      </div>
-      <div class="edu-content">
-        <b>Postdoctoral Researcher</b>, The Chinese University of Hong Kong, 2024–Present
-      </div>
-    </div>
-  </div>
+  <ul>
+    <li>
+      <b>Postdoctoral Researcher</b>, The Chinese University of Hong Kong, 2024–Present
+    </li>
+  </ul>
 
-  <!-- ===== Honors ===== -->
+  <!-- ===== Research Interests ===== -->
+  <h2>Research Interests</h2>
+
+  <ul>
+    <li>Spatiotemporal data analytics and intelligent modeling</li>
+    <li>GIS and remote sensing applications</li>
+    <li>Land use and transportation interaction</li>
+    <li>Urban sustainability and low-carbon development</li>
+  </ul>
+
+  <!-- ===== Honors & Awards ===== -->
   <h2>Honors & Awards</h2>
 
-  <ul class="honor-list">
-    <li>Excellent Paper Award, International Conference on Energy, Environment and Sustainable Development, 2017</li>
-    <li>Academic Excellence Scholarship, Renmin University of China, 2020–2021</li>
-    <li>Merit Student Award, Renmin University of China, 2020–2022</li>
+  <ul>
+    <li>
+      Excellent Paper Award, International Conference on Energy, Environment and Sustainable Development, 2017
+    </li>
+    <li>
+      Academic Excellence Scholarship, Renmin University of China, 2020–2021
+    </li>
+    <li>
+      Merit Student Award, Renmin University of China, 2020–2022
+    </li>
   </ul>
 
 </div>
