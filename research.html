@@ -106,17 +106,8 @@ nav a:hover {
 .section h2 {
   font-size: 32px;
   font-weight: normal;
-  margin-bottom: 26px;
-  text-align: center;
-}
-
-.section-intro {
-  max-width: 760px;
-  margin: 0 auto 70px;
-  font-size: 16px;
-  line-height: 1.8;
-  text-align: center;
-  color: #444;
+  margin-bottom: 50px;
+  text-align: left;   /* ✅ 左对齐 */
 }
 
 /* ===== Research Themes ===== */
@@ -154,11 +145,15 @@ nav a:hover {
 }
 
 /* ===== Major Projects ===== */
-.projects {
+.projects ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.projects li {
+  margin-bottom: 30px;
   font-size: 15px;
   line-height: 1.8;
-  max-width: 900px;
-  margin: 0 auto;
   color: #333;
 }
 
@@ -222,11 +217,6 @@ nav a:hover {
 <section class="section" id="themes">
   <h2>Research Themes</h2>
 
-  <div class="section-intro">
-    My research integrates spatial analytics, GIS-based modeling, and planning theory
-    to investigate the mechanisms, patterns, and policy implications of urban development.
-  </div>
-
   <div class="themes">
 
     <div class="theme">
@@ -279,10 +269,25 @@ nav a:hover {
 <!-- ===== Major Research Projects ===== -->
 <section class="section">
   <h2>Major Research Projects</h2>
+
   <div class="projects">
-    Selected national and regional research projects focusing on
-    green and low-carbon development, urban spatial optimization,
-    and socio-natural system coupling in megacities.
+    <ul>
+      <li>
+        <b>National Key R&D Program of China (2022YFB3903700)</b><br>
+        <i>Monitoring, Diagnostic Optimization, and Application Demonstration of Green
+        and Low-Carbon Development in Megacities</i><br>
+        Role: Core researcher; responsible for green and low-carbon development diagnosis
+        and socio-natural system coupling optimization.
+      </li>
+
+      <li>
+        <b>National Key R&D Program of China (2018YFE0101000)</b><br>
+        <i>High-Confidence Key Technologies and Applications of Spatiotemporal Data
+        in BRICS Countries</i><br>
+        Role: Researcher; responsible for spatiotemporal data processing and intelligent
+        model development.
+      </li>
+    </ul>
   </div>
 </section>
 
