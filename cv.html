@@ -1,282 +1,208 @@
-<!DOCTYPE html> 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Curriculum Vitae | Yinjie He</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --main-blue: #0b4f9c;
+  --text-color: #222;
+  --subtext-color: #555;
+  --border-color: #e0e0e0;
+  --accent-blue: #1976d2; /* 渐变起点色 */
+}
 
-  <style>
-    :root {
-      --main-blue: #0b4f9c;
-      --text-color: #222;
-      --subtext-color: #555;
-      --border-color: #e0e0e0;
-    }
+/* ===== Body ===== */
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.75;
+  color: var(--text-color);
+  background-color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+}
 
-    body {
-      font-family: "Georgia", "Times New Roman", serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.75;
-      color: var(--text-color);
-      background-color: #ffffff;
-      position: relative;
-      overflow-x: hidden;
-    }
+/* ===== Right Background Photo ===== */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 33vw;
+  height: 100%;
+  min-height: 100vh;
+  background:
+    linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 25%, rgba(255,255,255,0.25) 60%, rgba(255,255,255,0) 100%),
+    url("assets/images/cv-bg.jpg") center top / cover no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
 
-    /* ===== Right Background Photo with Smooth Leftward Gradient ===== */
-    body::after {
-      content: "";
-      position: fixed;        /* 固定在右侧，随页面滚动显示 */
-      top: 0;
-      right: 0;
-      width: 33vw;
-      height: 100%;
-      min-height: 100vh;      /* 保证至少覆盖整个视口 */
-      background:
-        linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 25%, rgba(255,255,255,0.25) 60%, rgba(255,255,255,0) 100%),
-        url("assets/images/cv-bg.jpg") center top / cover no-repeat;
-      z-index: -1;
-      pointer-events: none;    /* 避免遮挡点击事件 */
-    }
+/* ===== Navigation ===== */
+nav {
+  background-color: var(--main-blue);
+  padding: 14px 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
-    /* ===== Navigation ===== */
-    nav {
-      background-color: var(--main-blue);
-      padding: 14px 0;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 16px;
+  font-size: 15px;
+  white-space: nowrap;
+}
 
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      margin: 0 16px;
-      font-size: 15px;
-      white-space: nowrap;
-    }
+nav a:hover {
+  text-decoration: underline;
+}
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+.nav-current {
+  font-weight: 700;
+  text-decoration: underline;
+}
 
-    .nav-current {
-      font-weight: 700;
-      text-decoration: underline;
-    }
+/* ===== Container ===== */
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
 
-    /* ===== Container ===== */
-    .container {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
-    }
+h1 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
 
-    h1 {
-      font-size: 32px;
-      font-weight: normal;
-      margin-bottom: 12px;
-    }
+h2 {
+  font-size: 22px;
+  font-weight: normal;
+  margin-top: 56px;
+  margin-bottom: 18px;
+  padding-bottom: 6px;
+  position: relative;
+}
 
-    h2 {
-      font-size: 22px;
-      font-weight: normal;
-      margin-top: 56px;
-      margin-bottom: 18px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-color);
-    }
+/* ===== 优化的标题下横线 ===== */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px; /* 横线长度 */
+  height: 3px; /* 横线高度 */
+  background: linear-gradient(90deg, var(--accent-blue), var(--main-blue));
+  border-radius: 2px;
+  margin-top: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
 
-    /* ===== Download ===== */
-    .download {
-      margin-bottom: 30px;
-      font-size: 16px;
-    }
+/* ===== Download ===== */
+.download {
+  margin-bottom: 30px;
+  font-size: 16px;
+}
 
-    .download a {
-      color: var(--main-blue);
-      text-decoration: none;
-      font-weight: 600;
-    }
+.download a {
+  color: var(--main-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
 
-    .download a:hover {
-      text-decoration: underline;
-    }
+.download a:hover {
+  text-decoration: underline;
+}
 
-    /* ===== Timeline List ===== */
-    .edu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
+/* ===== Timeline List ===== */
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
 
-    .edu-item {
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
+.edu-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
 
-    .edu-logo {
-      width: 58px;
-      text-align: center;
-      flex-shrink: 0;
-      transition: transform 0.25s ease;
-    }
+.edu-logo {
+  width: 58px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
 
-    .edu-logo img {
-      width: 42px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+.edu-logo img {
+  width: 42px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
-    .edu-logo span {
-      display: block;
-      font-size: 12px;
-      color: #888;
-      margin-top: 6px;
-      line-height: 1.2;
-    }
+.edu-logo span {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 6px;
+  line-height: 1.2;
+}
 
-    .edu-logo:hover {
-      transform: translateY(-2px);
-    }
+.edu-logo:hover {
+  transform: translateY(-2px);
+}
 
-    .edu-content {
-      font-size: 16px;
-      color: var(--subtext-color);
-    }
+.edu-content {
+  font-size: 16px;
+  color: var(--subtext-color);
+}
 
-    .edu-content b {
-      color: var(--text-color);
-    }
+.edu-content b {
+  color: var(--text-color);
+}
 
-    /* ===== Honors ===== */
-    ul.honor-list {
-      margin: 10px 0 0 20px;
-      padding: 0;
-    }
+/* ===== 优化 Honors 列表 ===== */
+ul.honor-list {
+  margin: 10px 0 0 0;
+  padding: 0;
+  list-style: none; /* 去掉默认黑点 */
+}
 
-    ul.honor-list li {
-      margin-bottom: 10px;
-      font-size: 16px;
-      color: var(--subtext-color);
-    }
+ul.honor-list li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--subtext-color);
+  position: relative;
+  padding-left: 22px; /* 给自定义点留空间 */
+}
 
-    /* ===== Mobile ===== */
-    @media (max-width: 900px) {
-      body::after {
-        display: none;
-      }
-    }
+/* 自定义蓝色圆点 */
+ul.honor-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px; /* 垂直居中 */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-blue), var(--main-blue));
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
 
-    @media (max-width: 600px) {
-      .edu-item {
-        gap: 14px;
-      }
+/* ===== Mobile ===== */
+@media (max-width: 900px) {
+  body::after {
+    display: none;
+  }
+}
 
-      .edu-logo {
-        width: 48px;
-      }
-    }
-  </style>
-</head>
+@media (max-width: 600px) {
+  .edu-item {
+    gap: 14px;
+  }
 
-<body>
-
-<!-- ===== Navigation ===== -->
-<nav>
-  <a href="index.html">Home</a>
-  <a href="news/">News</a>
-  <a href="research.html">Research</a>
-  <a href="publications.html">Publications</a>
-  <a href="cv.html" class="nav-current">CV</a>
-</nav>
-
-<div class="container">
-
-  <h1>Curriculum Vitae</h1>
-
-  <p class="download">
-    📄 <a href="Yinjie_He_CV.pdf" target="_blank">Download CV (PDF)</a>
-  </p>
-
-  <!-- ===== Education ===== -->
-  <h2>Education</h2>
-
-  <div class="edu-list">
-
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-ruc.png" alt="Renmin University">
-        <span>Top 5</span>
-      </div>
-      <div class="edu-content">
-        <b>Ph.D. in Land Resource Management</b>, Renmin University of China, 2019–2023<br>
-        Dissertation: <i>Ecological and Environmental Risks of Land Use/Cover Change
-        along the Belt and Road Initiative</i>
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-lund.png" alt="Lund University">
-        <span>QS 72</span>
-      </div>
-      <div class="edu-content">
-        <b>Visiting Ph.D. Student</b>, Lund University, Sweden, 2021–2022
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-gzhu.png" alt="Guangzhou University">
-        <span>Top 100</span>
-      </div>
-      <div class="edu-content">
-        <b>M.S. in Land Resource Management</b>, Guangzhou University, 2016–2019
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-nnnu.png" alt="Nanning Normal University">
-      </div>
-      <div class="edu-content">
-        <b>B.S. in Land Resource Management</b>, Nanning Normal University, 2012–2016
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ===== Academic Positions ===== -->
-  <h2>Academic Positions</h2>
-
-  <div class="edu-list">
-    <div class="edu-item">
-      <div class="edu-logo">
-        <img src="/assets/images/logo-cuhk.png" alt="CUHK">
-        <span>QS 32</span>
-      </div>
-      <div class="edu-content">
-        <b>Postdoctoral Researcher</b>, The Chinese University of Hong Kong, 2024–Present
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== Honors ===== -->
-  <h2>Honors & Awards</h2>
-
-  <ul class="honor-list">
-    <li>Excellent Paper Award, International Conference on Energy, Environment and Sustainable Development, 2017</li>
-    <li>Academic Excellence Scholarship, Renmin University of China, 2020–2021</li>
-    <li>Merit Student Award, Renmin University of China, 2020–2022</li>
-  </ul>
-
-</div>
-
-</body>
-</html>
+  .edu-logo {
+    width: 48px;
+  }
+}
+</style>
