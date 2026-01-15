@@ -11,6 +11,7 @@
       --text-color: #222;
       --subtext-color: #555;
       --accent-blue: #1976d2;
+      --bg-width: 33vw; /* 背景图占页面右侧三分之一 */
     }
 
     body {
@@ -30,7 +31,7 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 33vw;
+      width: var(--bg-width);
       height: 100%;
       min-height: 100vh;
       background:
@@ -90,12 +91,13 @@
       position: relative;
     }
 
-    /* ===== 高级动态光晕横线 ===== */
+    /* ===== 高级横线 ===== */
     h2::after {
       content: "";
       display: block;
-      width: 120px;        /* 横线长度加长 */
-      height: 2px;         /* 纤细 */
+      width: calc(100% - var(--bg-width) - 40px); /* 横线到背景左边缘，保留20px内边距 */
+      max-width: calc(900px - var(--bg-width) - 40px); /* 防止容器过宽 */
+      height: 2px;
       border-radius: 2px;
       margin-top: 6px;
       background: linear-gradient(90deg, var(--accent-blue), var(--main-blue), var(--accent-blue));
@@ -106,14 +108,13 @@
       transition: all 0.8s ease-out;
     }
 
-    /* 横线显现 */
+    /* 横线显现 + 光晕动画 */
     h2.visible::after {
       opacity: 1;
       transform: translateX(0);
       animation: glowMove 3s linear infinite;
     }
 
-    /* 光晕动态流动动画 */
     @keyframes glowMove {
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
@@ -202,6 +203,11 @@
       body::after {
         display: none;
       }
+
+      h2::after {
+        width: 80%; /* 移动端横线适配 */
+        max-width: none;
+      }
     }
 
     @media (max-width: 600px) {
@@ -218,7 +224,6 @@
 
 <body>
 
-<!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="news/">News</a>
@@ -235,7 +240,6 @@
     📄 <a href="Yinjie_He_CV.pdf" target="_blank">Download CV (PDF)</a>
   </p>
 
-  <!-- ===== Education ===== -->
   <h2>Education</h2>
 
   <div class="edu-list">
@@ -281,7 +285,6 @@
     </div>
   </div>
 
-  <!-- ===== Academic Positions ===== -->
   <h2>Academic Positions</h2>
 
   <div class="edu-list">
@@ -296,7 +299,6 @@
     </div>
   </div>
 
-  <!-- ===== Honors ===== -->
   <h2>Honors & Awards</h2>
 
   <ul class="honor-list">
