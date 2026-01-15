@@ -10,8 +10,7 @@
       --main-blue: #0b4f9c;
       --text-color: #222;
       --subtext-color: #555;
-      --border-color: #e0e0e0;
-      --accent-blue: #1976d2; /* 渐变起点色 */
+      --accent-blue: #1976d2;
     }
 
     body {
@@ -25,7 +24,7 @@
       overflow-x: hidden;
     }
 
-    /* ===== Right Background Photo with Smooth Leftward Gradient ===== */
+    /* ===== Right Background Photo ===== */
     body::after {
       content: "";
       position: fixed;
@@ -91,16 +90,33 @@
       position: relative;
     }
 
-    /* ===== 优化的标题下横线 ===== */
+    /* ===== 高级动态光晕横线 ===== */
     h2::after {
       content: "";
       display: block;
-      width: 60px; /* 横线长度 */
-      height: 3px; /* 横线高度 */
-      background: linear-gradient(90deg, var(--accent-blue), var(--main-blue));
+      width: 120px;        /* 横线长度加长 */
+      height: 2px;         /* 纤细 */
       border-radius: 2px;
-      margin-top: 4px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      margin-top: 6px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--main-blue), var(--accent-blue));
+      background-size: 200% 100%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.8s ease-out;
+    }
+
+    /* 横线显现 */
+    h2.visible::after {
+      opacity: 1;
+      transform: translateX(0);
+      animation: glowMove 3s linear infinite;
+    }
+
+    /* 光晕动态流动动画 */
+    @keyframes glowMove {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     /* ===== Download ===== */
@@ -171,14 +187,14 @@
     ul.honor-list {
       margin: 10px 0 0 20px;
       padding: 0;
-      list-style: none; /* 去掉默认点 */
+      list-style: none;
     }
 
     ul.honor-list li {
       margin-bottom: 10px;
       font-size: 16px;
       color: var(--subtext-color);
-      padding-left: 0; /* 去掉原点占用空间 */
+      padding-left: 0;
     }
 
     /* ===== Mobile ===== */
@@ -223,7 +239,6 @@
   <h2>Education</h2>
 
   <div class="edu-list">
-
     <div class="edu-item">
       <div class="edu-logo">
         <img src="/assets/images/logo-ruc.png" alt="Renmin University">
@@ -264,7 +279,6 @@
         <b>B.S. in Land Resource Management</b>, Nanning Normal University, 2012–2016
       </div>
     </div>
-
   </div>
 
   <!-- ===== Academic Positions ===== -->
@@ -292,6 +306,20 @@
   </ul>
 
 </div>
+
+<script>
+  // 页面滚动触发标题横线动画
+  const headers = document.querySelectorAll("h2");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  headers.forEach(h => observer.observe(h));
+</script>
 
 </body>
 </html>
