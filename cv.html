@@ -24,20 +24,21 @@
       overflow-x: hidden;
     }
 
-    /* ===== Right Background Photo with Smooth Leftward Gradient ===== */
+    /* ===== Right Background Photo with Smooth Gradient ===== */
     body::after {
       content: "";
-      position: fixed;        /* 固定在右侧，随页面滚动显示 */
+      position: fixed; /* 固定在右侧 */
       top: 0;
       right: 0;
       width: 33vw;
       height: 100%;
-      min-height: 100vh;      /* 保证至少覆盖整个视口 */
-      background:
-        linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 25%, rgba(255,255,255,0.25) 60%, rgba(255,255,255,0) 100%),
+      min-height: 100vh;
+      background: 
+        linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.2) 85%, rgba(255,255,255,0) 100%),
         url("assets/images/cv-bg.jpg") center top / cover no-repeat;
       z-index: -1;
-      pointer-events: none;    /* 避免遮挡点击事件 */
+      pointer-events: none;
+      transition: background 0.5s ease;
     }
 
     /* ===== Navigation ===== */
@@ -166,10 +167,10 @@
       color: var(--subtext-color);
     }
 
-    /* ===== Mobile ===== */
+    /* ===== Mobile Responsiveness ===== */
     @media (max-width: 900px) {
       body::after {
-        display: none;
+        display: none; /* 移动设备隐藏右侧背景 */
       }
     }
 
