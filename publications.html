@@ -8,9 +8,11 @@
   <style>
     :root {
       --main-blue: #0b4f9c;
+      --accent-blue: #1976d2;
       --text-color: #222;
       --subtext-color: #555;
-      --border-color: #e0e0e0;
+      --bg-width: 33vw;
+      --highlight-bg: rgba(11,79,156,0.03);
     }
 
     body {
@@ -20,6 +22,25 @@
       line-height: 1.75;
       color: var(--text-color);
       background-color: #fff;
+      position: relative;
+      overflow-x: hidden;
+      background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+    }
+
+    /* ===== Right Background Photo ===== */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: var(--bg-width);
+      height: 100%;
+      min-height: 100vh;
+      background:
+        linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 25%, rgba(255,255,255,0.25) 60%, rgba(255,255,255,0) 100%),
+        url("assets/images/cv-bg.jpg") center top / cover no-repeat;
+      z-index: -1;
+      pointer-events: none;
     }
 
     /* ===== Navigation ===== */
@@ -27,6 +48,9 @@
       background-color: var(--main-blue);
       padding: 14px 0;
       text-align: center;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     nav a {
@@ -36,6 +60,7 @@
       font-size: 15px;
       letter-spacing: 0.5px;
       white-space: nowrap;
+      transition: all 0.25s ease;
     }
 
     nav a:hover {
@@ -47,42 +72,96 @@
       text-decoration: underline;
     }
 
-    /* ===== Main Content ===== */
+    /* ===== Container ===== */
     .container {
       max-width: 880px;
       margin: 60px auto;
       padding: 0 20px;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
       font-size: 32px;
       font-weight: normal;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     h2 {
       font-size: 22px;
       font-weight: normal;
       margin-top: 50px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
     }
 
+    /* ===== 高级横线 ===== */
+    h2::after {
+      content: "";
+      display: block;
+      width: calc(100% - var(--bg-width) - 40px);
+      max-width: calc(880px - var(--bg-width) - 40px);
+      height: 2px;
+      border-radius: 2px;
+      margin-top: 6px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--main-blue), var(--accent-blue));
+      background-size: 200% 100%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.8s ease-out;
+    }
+
+    h2.visible::after {
+      opacity: 1;
+      transform: translateX(0);
+      animation: glowMove 3s linear infinite;
+    }
+
+    @keyframes glowMove {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ===== Text & Paragraphs ===== */
     p {
       font-size: 16px;
       color: var(--subtext-color);
       margin: 14px 0;
+      line-height: 1.8;
     }
 
     ol {
       padding-left: 20px;
+      counter-reset: item;
     }
 
-    li {
-      margin-bottom: 18px;
+    ol li {
+      margin-bottom: 22px;
       font-size: 16px;
       color: var(--subtext-color);
+      position: relative;
+      line-height: 1.7;
+      transition: all 0.3s ease;
+      padding-left: 6px;
+      border-left: 2px solid transparent;
+    }
+
+    ol li:hover {
+      background-color: var(--highlight-bg);
+      border-left-color: var(--main-blue);
+      padding-left: 10px;
+    }
+
+    ol li::marker {
+      font-weight: bold;
+      color: var(--main-blue);
+      font-size: 1.05em;
     }
 
     li b {
@@ -92,29 +171,32 @@
     a {
       color: var(--main-blue);
       text-decoration: none;
-      word-break: break-all;
+      word-break: break-word;
+      transition: all 0.25s ease;
     }
 
     a:hover {
       text-decoration: underline;
+      color: var(--accent-blue);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      body::after { display: none; }
+      h2::after { width: 80%; max-width: none; }
     }
 
     @media (max-width: 600px) {
-      .container {
-        margin: 40px auto;
-      }
-
-      nav a {
-        margin: 0 10px;
-        font-size: 14px;
-      }
+      .container { margin: 40px auto; }
+      nav a { margin: 0 10px; font-size: 14px; }
+      ol li { padding-left: 4px; }
     }
+
   </style>
 </head>
 
 <body>
 
-<!-- ===== Navigation ===== -->
 <nav>
   <a href="index.html">Home</a>
   <a href="news/">News</a>
@@ -131,7 +213,6 @@
     <b>Summary:</b> I have published 20+ papers, including 8 SCI/SSCI and 6 CSSCI/CSCD core Chinese papers.
   </p>
 
-  <!-- ===== English Journal Articles ===== -->
   <h2>English Journal Articles</h2>
 
   <ol>
@@ -142,8 +223,7 @@
       <a href="https://doi.org/10.3390/land14051096" target="_blank">
         https://doi.org/10.3390/land14051096
       </a>
-      <br>
-      (SSCI, CAS Q2, IF: 3.2)
+      <br>(SSCI, CAS Q2, IF: 3.2)
     </li>
 
     <li>
@@ -153,8 +233,7 @@
       <a href="https://doi.org/10.1002/ldr.5483" target="_blank">
         https://doi.org/10.1002/ldr.5483
       </a>
-      <br>
-      (SCI, CAS Q2, IF: 3.7)
+      <br>(SCI, CAS Q2, IF: 3.7)
     </li>
 
     <li>
@@ -164,8 +243,7 @@
       <a href="https://doi.org/10.1038/s41598-024-83462-9" target="_blank">
         https://doi.org/10.1038/s41598-024-83462-9
       </a>
-      <br>
-      (SCI, JCR Q1, IF: 3.9)
+      <br>(SCI, JCR Q1, IF: 3.9)
     </li>
 
     <li>
@@ -175,8 +253,7 @@
       <a href="https://doi.org/10.3390/land13081281" target="_blank">
         https://doi.org/10.3390/land13081281
       </a>
-      <br>
-      (SSCI, CAS Q2, IF: 3.2)
+      <br>(SSCI, CAS Q2, IF: 3.2)
     </li>
 
     <li>
@@ -186,12 +263,10 @@
       <a href="https://doi.org/10.3389/fenvs.2023.1115058" target="_blank">
         https://doi.org/10.3389/fenvs.2023.1115058
       </a>
-      <br>
-      (SCI, JCR Q2, IF: 3.7)
+      <br>(SCI, JCR Q2, IF: 3.7)
     </li>
   </ol>
 
-  <!-- ===== Chinese Journal Articles ===== -->
   <h2>Chinese Journal Articles</h2>
 
   <ol>
@@ -205,36 +280,46 @@
       <b>何尹杰</b>, 张占录, 朱高儒, 等. (2022).
       基于生态导向的四川省交通国土空间承载力评价.
       <i>地理与地理信息科学</i>, 38(03), 97–103.
-      <br>
-      (CSCD / 中文核心)
+      <br>(CSCD / 中文核心)
     </li>
 
     <li>
       <b>何尹杰</b>, 张占录, 高文文. (2022).
       北京市政府搬迁至副中心对通州土地利用影响.
       <i>水土保持研究</i>, 29(03), 351–357.
-      <br>
-      (CSCD / 中文核心)
+      <br>(CSCD / 中文核心)
     </li>
 
     <li>
       <b>何尹杰</b>, 吴大放, 刘艳艳, 等. (2021).
       城市轨道交通对土地利用变化的影响——以广州市3、7号线为例.
       <i>经济地理</i>, 41(06), 171–179.
-      <br>
-      (CSSCI / CSCD / 中文核心)
+      <br>(CSSCI / CSCD / 中文核心)
     </li>
 
     <li>
       <b>何尹杰</b>, 吴大放, 刘艳艳. (2018).
       城市轨道交通对土地利用的影响研究综述——基于 CiteSpace 的计量分析.
       <i>地球科学进展</i>, 33(12), 1259–1271.
-      <br>
-      (CSCD / 中文核心)
+      <br>(CSCD / 中文核心)
     </li>
   </ol>
 
 </div>
+
+<script>
+  // 页面滚动触发标题横线动画
+  const headers = document.querySelectorAll("h2");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  headers.forEach(h => observer.observe(h));
+</script>
 
 </body>
 </html>
