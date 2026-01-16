@@ -69,7 +69,7 @@
       position: relative;
     }
 
-    /* ✅ 改动 ①：英文期刊标题蓝色 */
+    /* 英文期刊标题蓝色 */
     .section-blue {
       color: var(--main-blue);
     }
@@ -137,18 +137,32 @@
       text-decoration: underline;
     }
 
-    /* ===== 中文文章标题 + Tooltip ===== */
+    /* ===== 中文文章标题（可点击设计） ===== */
     .cnki-link {
       position: relative;
+      display: inline-block;
       color: var(--main-blue);
       text-decoration: none;
+      padding-right: 6px;
+      transition: transform 0.2s ease;
     }
 
     .cnki-link::after {
+      content: "↗";
+      font-size: 14px;
+      margin-left: 6px;
+    }
+
+    .cnki-link:hover {
+      text-decoration: underline;
+      transform: translateY(-1px);
+    }
+
+    .cnki-link::before {
       content: "View CNKI Profile";
       position: absolute;
+      top: -36px;
       left: 0;
-      top: -34px;
       background: #fff;
       color: var(--main-blue);
       font-size: 12px;
@@ -158,11 +172,11 @@
       white-space: nowrap;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(4px);
       transition: opacity 0.2s ease, transform 0.2s ease;
+      transform: translateY(4px);
     }
 
-    .cnki-link:hover::after {
+    .cnki-link:hover::before {
       opacity: 1;
       transform: translateY(0);
     }
@@ -192,7 +206,6 @@
     <b>Summary:</b> I have published 20+ papers, including 8 SCI/SSCI and 6 CSSCI/CSCD core Chinese papers.
   </p>
 
-  <!-- ✅ 改动 ① -->
   <h2 class="section-blue">English Journal Articles</h2>
 
   <ol>
@@ -225,9 +238,28 @@
       </a>
       <br>(SCI, JCR Q1, IF: 3.9)
     </li>
+
+    <li>
+      <b>He, Yinjie</b>, Wu, D. F., Li, S. C., et al. (2024).
+      Ecological and Environmental Risk Warning Framework of Land Use/Cover Change for the Belt and Road Initiative.
+      <i>Land</i>, 13(8), 1281.
+      <a href="https://doi.org/10.3390/land13081281" target="_blank">
+        https://doi.org/10.3390/land13081281
+      </a>
+      <br>(SSCI, CAS Q2, IF: 3.2)
+    </li>
+
+    <li>
+      <b>He, Yinjie</b>, Wu, D. F., Liu, Y. Y., et al. (2023).
+      Review of Research on Evaluating the Ecological Security of Cultivated Land.
+      <i>Frontiers in Environmental Science</i>, 11, 1115058.
+      <a href="https://doi.org/10.3389/fenvs.2023.1115058" target="_blank">
+        https://doi.org/10.3389/fenvs.2023.1115058
+      </a>
+      <br>(SCI, JCR Q2, IF: 3.7)
+    </li>
   </ol>
 
-  <!-- ✅ 改动 ② -->
   <h2>
     <a
       class="cnki-link"
