@@ -69,6 +69,11 @@
       position: relative;
     }
 
+    /* ✅ 改动 ①：英文期刊标题蓝色 */
+    .section-blue {
+      color: var(--main-blue);
+    }
+
     /* ===== 横线动画 ===== */
     h2::after {
       content: "";
@@ -132,14 +137,34 @@
       text-decoration: underline;
     }
 
-    /* ===== 中文文章标题专用链接样式 ===== */
+    /* ===== 中文文章标题 + Tooltip ===== */
     .cnki-link {
+      position: relative;
       color: var(--main-blue);
       text-decoration: none;
     }
 
-    .cnki-link:hover {
-      text-decoration: underline;
+    .cnki-link::after {
+      content: "View CNKI Profile";
+      position: absolute;
+      left: 0;
+      top: -34px;
+      background: #fff;
+      color: var(--main-blue);
+      font-size: 12px;
+      padding: 4px 8px;
+      border: 1px solid var(--main-blue);
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .cnki-link:hover::after {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 600px) {
@@ -167,7 +192,8 @@
     <b>Summary:</b> I have published 20+ papers, including 8 SCI/SSCI and 6 CSSCI/CSCD core Chinese papers.
   </p>
 
-  <h2>English Journal Articles</h2>
+  <!-- ✅ 改动 ① -->
+  <h2 class="section-blue">English Journal Articles</h2>
 
   <ol>
     <li>
@@ -201,7 +227,7 @@
     </li>
   </ol>
 
-  <!-- ✅ 这里是唯一改动的地方 -->
+  <!-- ✅ 改动 ② -->
   <h2>
     <a
       class="cnki-link"
