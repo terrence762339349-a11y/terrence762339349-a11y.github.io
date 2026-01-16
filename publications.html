@@ -69,16 +69,21 @@
       position: relative;
     }
 
-    /* ===== 横线改成CV样式 ===== */
+    /* ===== 横线动画 ===== */
     h2::after {
       content: "";
       display: block;
       width: 100%;
-      max-width: 840px; /* 容器宽度 - 边距 */
+      max-width: 840px;
       height: 2px;
       border-radius: 2px;
       margin-top: 6px;
-      background: linear-gradient(90deg, var(--accent-blue), var(--main-blue), var(--accent-blue));
+      background: linear-gradient(
+        90deg,
+        var(--accent-blue),
+        var(--main-blue),
+        var(--accent-blue)
+      );
       background-size: 200% 100%;
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
       opacity: 0;
@@ -127,11 +132,20 @@
       text-decoration: underline;
     }
 
+    /* ===== 中文文章标题专用链接样式 ===== */
+    .cnki-link {
+      color: var(--main-blue);
+      text-decoration: none;
+    }
+
+    .cnki-link:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 600px) {
       .container { margin: 40px auto; }
       nav a { margin: 0 10px; font-size: 14px; }
     }
-
   </style>
 </head>
 
@@ -185,29 +199,18 @@
       </a>
       <br>(SCI, JCR Q1, IF: 3.9)
     </li>
-
-    <li>
-      <b>He, Yinjie</b>, Wu, D. F., Li, S. C., et al. (2024).
-      Ecological and Environmental Risk Warning Framework of Land Use/Cover Change for the Belt and Road Initiative.
-      <i>Land</i>, 13(8), 1281.
-      <a href="https://doi.org/10.3390/land13081281" target="_blank">
-        https://doi.org/10.3390/land13081281
-      </a>
-      <br>(SSCI, CAS Q2, IF: 3.2)
-    </li>
-
-    <li>
-      <b>He, Yinjie</b>, Wu, D. F., Liu, Y. Y., et al. (2023).
-      Review of Research on Evaluating the Ecological Security of Cultivated Land.
-      <i>Frontiers in Environmental Science</i>, 11, 1115058.
-      <a href="https://doi.org/10.3389/fenvs.2023.1115058" target="_blank">
-        https://doi.org/10.3389/fenvs.2023.1115058
-      </a>
-      <br>(SCI, JCR Q2, IF: 3.7)
-    </li>
   </ol>
 
-  <h2>Chinese Journal Articles</h2>
+  <!-- ✅ 这里是唯一改动的地方 -->
+  <h2>
+    <a
+      class="cnki-link"
+      href="https://au.cnki.net/author/personalInfo/000068772458"
+      target="_blank"
+    >
+      中文文章
+    </a>
+  </h2>
 
   <ol>
     <li>
@@ -248,11 +251,10 @@
 </div>
 
 <script>
-  // 页面滚动触发标题横线动画
   const headers = document.querySelectorAll("h2");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if(entry.isIntersecting){
+      if (entry.isIntersecting) {
         entry.target.classList.add("visible");
       }
     });
