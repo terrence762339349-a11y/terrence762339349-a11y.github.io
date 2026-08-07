@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<title>News | Terrence Ho</title>
+<title>News | Terrence He</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -12,150 +12,168 @@
 
 :root {
 
---main-blue:#0b4f9c;
---text-color:#222;
---subtext-color:#555;
+  --main-blue:#0b4f9c;
+  --border-color:#e5e5e5;
+  --text-color:#222;
+  --subtext-color:#555;
 
 }
 
 
 body {
 
-margin:0;
+  font-family:"Georgia","Times New Roman",serif;
 
-font-family:"Georgia",
-"Times New Roman",
-serif;
+  margin:0;
 
-color:var(--text-color);
+  background:#fff;
 
-background:#fff;
+  color:var(--text-color);
 
 }
 
 
-/* ===== Navigation ===== */
 
+/* ===== Navigation ===== */
 
 nav {
 
-background-color:var(--main-blue);
+  background-color:var(--main-blue);
 
-padding:14px 0;
+  padding:14px 0;
 
-text-align:center;
+  text-align:center;
 
 }
 
 
 nav a {
 
-color:white;
+  color:#fff;
 
-text-decoration:none;
+  margin:0 16px;
 
-margin:0 16px;
+  text-decoration:none;
 
-font-size:15px;
+  font-size:15px;
 
 }
 
 
 nav a:hover {
 
-text-decoration:underline;
+  text-decoration:underline;
 
 }
 
 
 .nav-current {
 
-font-weight:bold;
+  font-weight:700;
 
-text-decoration:underline;
+  text-decoration:underline;
 
 }
 
 
 
-/* ===== Main ===== */
+/* ===== Container ===== */
 
 
 .container {
 
-max-width:900px;
+  max-width:900px;
 
-margin:60px auto;
+  margin:60px auto;
 
-padding:0 20px;
+  padding:0 20px;
 
 }
+
 
 
 h1 {
 
-font-size:32px;
+  font-size:32px;
 
-font-weight:normal;
+  font-weight:normal;
 
-margin-bottom:45px;
+  margin-bottom:40px;
 
 }
 
 
 
-
-/* ===== News ===== */
+/* ===== News Item ===== */
 
 
 .news-item {
 
 
-display:flex;
+  display:flex;
 
-gap:35px;
+  align-items:flex-start;
 
-align-items:flex-start;
+  gap:30px;
 
-margin-bottom:55px;
+  padding:30px 0;
+
+  border-bottom:1px solid var(--border-color);
 
 
 }
 
+
+
+/* ===== 图片区域 ===== */
 
 
 .news-image {
 
 
-width:280px;
+  width:220px;
 
-height:180px;
+  flex-shrink:0;
 
+  display:flex;
 
-object-fit:contain;
+  justify-content:center;
 
-
-background:#f7f7f7;
-
-
-border-radius:8px;
-
-
-box-shadow:
-0 4px 12px rgba(0,0,0,0.12);
-
-
-flex-shrink:0;
+  align-items:flex-start;
 
 
 }
 
 
 
+.news-image img {
+
+
+  width:100%;
+
+  height:auto;
+
+  max-height:180px;
+
+  object-fit:contain;
+
+  border-radius:8px;
+
+  box-shadow:0 3px 12px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+/* ===== 内容区域 ===== */
+
+
 .news-content {
 
 
-flex:1;
+  flex:1;
+
 
 }
 
@@ -164,11 +182,12 @@ flex:1;
 .news-date {
 
 
-font-size:14px;
+  font-size:14px;
 
-color:#888;
+  color:#888;
 
-margin-bottom:8px;
+  margin-bottom:10px;
+
 
 }
 
@@ -177,38 +196,51 @@ margin-bottom:8px;
 .news-title {
 
 
-font-size:22px;
+  margin:0 0 12px 0;
 
-color:var(--main-blue);
-
-margin-bottom:12px;
-
-font-weight:normal;
 
 }
 
 
 
-.news-title:hover {
+.news-title a {
 
-text-decoration:underline;
+
+  font-size:19px;
+
+  color:var(--main-blue);
+
+  text-decoration:none;
+
+  border-bottom:1px solid #f1c40f;
+
+
+}
+
+
+
+.news-title a:hover {
+
+
+  text-decoration:underline;
+
 
 }
 
 
 
-.news-content p {
+.news-summary {
 
 
-font-size:16px;
+  font-size:16px;
 
-line-height:1.7;
+  line-height:1.7;
 
-color:var(--subtext-color);
+  color:var(--subtext-color);
 
-margin:0;
 
 }
+
 
 
 
@@ -216,33 +248,41 @@ margin:0;
 /* ===== Mobile ===== */
 
 
-@media(max-width:768px){
+@media(max-width:700px){
 
 
-.news-item{
-
-display:block;
-
-}
+.news-item {
 
 
-
-.news-image{
-
-
-width:100%;
-
-height:auto;
-
-max-height:300px;
-
-margin-bottom:20px;
+  flex-direction:column;
 
 
 }
 
 
+.news-image {
+
+
+  width:100%;
+
+
 }
+
+
+
+.news-image img {
+
+
+  max-width:360px;
+
+
+}
+
+
+
+}
+
+
 
 </style>
 
@@ -251,24 +291,29 @@ margin-bottom:20px;
 
 
 
+
 <body>
 
+
+<!-- ===== Navigation ===== -->
 
 
 <nav>
 
-<a href="index.html">Home</a>
 
-<a href="news.html" class="nav-current">News</a>
+<a href="../index.html">Home</a>
 
-<a href="research.html">Research</a>
+<a href="index.html" class="nav-current">News</a>
 
-<a href="publications.html">Publications</a>
+<a href="../research.html">Research</a>
 
-<a href="cv.html">CV</a>
+<a href="../publications.html">Publications</a>
+
+<a href="../cv.html">CV</a>
 
 
 </nav>
+
 
 
 
@@ -281,44 +326,114 @@ margin-bottom:20px;
 
 
 
-<!-- ===== 最新新闻 ===== -->
+
+<!-- ================= News 1 ================= -->
 
 
 <div class="news-item">
 
 
-<img class="news-image"
-src="assets/images/news/2026-sztu-associate-researcher.png"
+<div class="news-image">
+
+
+<img src="../assets/images/news/2024-postdoc-cuhk.png"
+alt="The Chinese University of Hong Kong">
+
+
+</div>
+
+
+
+<div class="news-content">
+
+
+<div class="news-date">
+
+February 2024
+
+</div>
+
+
+
+<div class="news-title">
+
+
+<a href="2024-postdoc.html">
+
+Postdoctoral Appointment at The Chinese University of Hong Kong
+
+</a>
+
+
+</div>
+
+
+
+<div class="news-summary">
+
+
+I officially joined The Chinese University of Hong Kong as a Postdoctoral Researcher,
+focusing on spatiotemporal data analysis, GIS, remote sensing,
+and urban sustainable development.
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ================= News 2 ================= -->
+
+
+
+<div class="news-item">
+
+
+<div class="news-image">
+
+
+<img src="../assets/images/news/2026-sztu-joining.png"
 alt="Shenzhen Technology University">
 
 
+</div>
+
+
+
+
 <div class="news-content">
 
 
 <div class="news-date">
-2026
+
+August 2026
+
 </div>
 
 
+
+
 <div class="news-title">
+
+
+<a href="2026-sztu-joining.html">
+
 
 Joining Shenzhen Technology University as Associate Researcher
 
-</div>
 
-
-<p>
-
-I joined the College of Urban Transportation and Logistics,
-Shenzhen Technology University as an Associate Researcher.
-My research focuses on spatiotemporal data analytics,
-GIS, remote sensing, transportation-land use interaction,
-and sustainable urban development.
-
-</p>
-
-
-</div>
+</a>
 
 
 </div>
@@ -326,49 +441,27 @@ and sustainable urban development.
 
 
 
-
-<!-- ===== 第二条新闻 ===== -->
-
-
-<div class="news-item">
+<div class="news-summary">
 
 
-<img class="news-image"
-src="assets/images/news/2024-cuhk-postdoc.png"
-alt="CUHK">
-
-
-<div class="news-content">
-
-
-<div class="news-date">
-
-2024
-
-</div>
-
-
-<div class="news-title">
-
-Postdoctoral Researcher at The Chinese University of Hong Kong
-
-</div>
-
-
-<p>
-
-I started my postdoctoral research at
-The Chinese University of Hong Kong.
-My research focused on green and low-carbon development,
-urban sustainability, and spatial intelligence.
-
-</p>
+I joined Shenzhen Technology University as a full-time Associate Researcher
+in the College of Urban Transportation and Logistics,
+focusing on transportation, land use interaction,
+and intelligent urban systems.
 
 
 </div>
 
 
+
 </div>
+
+
+
+</div>
+
+
+
 
 
 
@@ -377,5 +470,6 @@ urban sustainability, and spatial intelligence.
 
 
 </body>
+
 
 </html>
