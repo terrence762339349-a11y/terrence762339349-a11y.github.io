@@ -7,126 +7,118 @@
 <title>News | Terrence Ho</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
 <style>
 
 :root {
-  --main-blue:#0b4f9c;
-  --text-color:#222;
-  --subtext-color:#555;
+
+--main-blue:#0b4f9c;
+--text-color:#222;
+--subtext-color:#555;
+
 }
 
 
 body {
 
-  margin:0;
-  font-family:"Georgia",
-  "Times New Roman",
-  serif;
+margin:0;
 
-  color:var(--text-color);
+font-family:"Georgia",
+"Times New Roman",
+serif;
 
-  background:#ffffff;
+color:var(--text-color);
+
+background:#fff;
 
 }
 
 
 /* ===== Navigation ===== */
 
+
 nav {
 
-  background-color:var(--main-blue);
+background-color:var(--main-blue);
 
-  padding:14px 0;
+padding:14px 0;
 
-  text-align:center;
+text-align:center;
 
 }
 
 
 nav a {
 
-  color:white;
+color:white;
 
-  text-decoration:none;
+text-decoration:none;
 
-  margin:0 16px;
+margin:0 16px;
 
-  font-size:15px;
+font-size:15px;
 
 }
 
 
 nav a:hover {
 
-  text-decoration:underline;
+text-decoration:underline;
 
 }
 
 
 .nav-current {
 
-  font-weight:bold;
+font-weight:bold;
 
-  text-decoration:underline;
+text-decoration:underline;
 
 }
 
 
 
-/* ===== Container ===== */
+/* ===== Main ===== */
 
 
 .container {
 
-  max-width:900px;
+max-width:900px;
 
-  margin:60px auto;
+margin:60px auto;
 
-  padding:0 20px;
+padding:0 20px;
 
 }
 
 
 h1 {
 
-  font-size:32px;
+font-size:32px;
 
-  font-weight:normal;
+font-weight:normal;
 
-  margin-bottom:50px;
+margin-bottom:45px;
 
 }
 
 
 
-/* ===== News Item ===== */
+
+/* ===== News ===== */
 
 
 .news-item {
 
 
-  display:flex;
+display:flex;
 
-  gap:35px;
+gap:35px;
 
-  margin-bottom:60px;
+align-items:flex-start;
 
-  align-items:flex-start;
+margin-bottom:55px;
 
-
-  opacity:0;
-
-  transform:translateY(30px);
-
-  animation:fadeUp 1s ease forwards;
-
-}
-
-
-
-.news-item:nth-child(2){
-
-  animation-delay:0.2s;
 
 }
 
@@ -135,62 +127,48 @@ h1 {
 .news-image {
 
 
-  width:320px;
+width:280px;
 
-  height:180px;
-
-
-  object-fit:cover;
+height:180px;
 
 
-  border-radius:8px;
+object-fit:contain;
 
 
-  box-shadow:
-  0 6px 18px rgba(0,0,0,0.12);
+background:#f7f7f7;
 
 
-  transition:
-  transform .3s ease;
+border-radius:8px;
 
 
-  flex-shrink:0;
+box-shadow:
+0 4px 12px rgba(0,0,0,0.12);
 
 
-}
-
-
-
-.news-image:hover {
-
-
-  transform:scale(1.03);
+flex-shrink:0;
 
 
 }
 
-
-
-/* ===== Text ===== */
 
 
 .news-content {
 
 
-  flex:1;
-
+flex:1;
 
 }
+
 
 
 .news-date {
 
 
-  font-size:14px;
+font-size:14px;
 
-  color:#888;
+color:#888;
 
-  margin-bottom:8px;
+margin-bottom:8px;
 
 }
 
@@ -199,14 +177,13 @@ h1 {
 .news-title {
 
 
-  font-size:22px;
+font-size:22px;
 
-  font-weight:normal;
+color:var(--main-blue);
 
-  color:var(--main-blue);
+margin-bottom:12px;
 
-  margin-bottom:12px;
-
+font-weight:normal;
 
 }
 
@@ -214,9 +191,7 @@ h1 {
 
 .news-title:hover {
 
-
-  text-decoration:underline;
-
+text-decoration:underline;
 
 }
 
@@ -225,43 +200,13 @@ h1 {
 .news-content p {
 
 
-  font-size:16px;
+font-size:16px;
 
-  line-height:1.7;
+line-height:1.7;
 
-  color:var(--subtext-color);
+color:var(--subtext-color);
 
-  margin:0;
-
-
-}
-
-
-
-
-/* ===== Animation ===== */
-
-
-@keyframes fadeUp {
-
-
-from{
-
-opacity:0;
-
-transform:translateY(30px);
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
+margin:0;
 
 }
 
@@ -276,14 +221,10 @@ transform:translateY(0);
 
 .news-item{
 
-
-flex-direction:column;
-
-
-gap:20px;
-
+display:block;
 
 }
+
 
 
 .news-image{
@@ -293,25 +234,18 @@ width:100%;
 
 height:auto;
 
-aspect-ratio:16/9;
+max-height:300px;
+
+margin-bottom:20px;
 
 
 }
 
 
-
-h1{
-
-font-size:28px;
-
 }
-
-
-
-}
-
 
 </style>
+
 
 </head>
 
@@ -346,7 +280,8 @@ font-size:28px;
 
 
 
-<!-- ===== News 1 最新 ===== -->
+
+<!-- ===== 最新新闻 ===== -->
 
 
 <div class="news-item">
@@ -376,8 +311,7 @@ Joining Shenzhen Technology University as Associate Researcher
 
 I joined the College of Urban Transportation and Logistics,
 Shenzhen Technology University as an Associate Researcher.
-
-My research will focus on spatiotemporal data analytics,
+My research focuses on spatiotemporal data analytics,
 GIS, remote sensing, transportation-land use interaction,
 and sustainable urban development.
 
@@ -393,8 +327,7 @@ and sustainable urban development.
 
 
 
-
-<!-- ===== News 2 ===== -->
+<!-- ===== 第二条新闻 ===== -->
 
 
 <div class="news-item">
@@ -402,16 +335,17 @@ and sustainable urban development.
 
 <img class="news-image"
 src="assets/images/news/2024-cuhk-postdoc.png"
-alt="The Chinese University of Hong Kong">
+alt="CUHK">
 
 
 <div class="news-content">
 
 
 <div class="news-date">
-2024
-</div>
 
+2024
+
+</div>
 
 
 <div class="news-title">
@@ -421,13 +355,11 @@ Postdoctoral Researcher at The Chinese University of Hong Kong
 </div>
 
 
-
 <p>
 
 I started my postdoctoral research at
 The Chinese University of Hong Kong.
-
-My work focused on green and low-carbon development,
+My research focused on green and low-carbon development,
 urban sustainability, and spatial intelligence.
 
 </p>
@@ -437,7 +369,6 @@ urban sustainability, and spatial intelligence.
 
 
 </div>
-
 
 
 
