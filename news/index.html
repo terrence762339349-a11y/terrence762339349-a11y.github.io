@@ -20,7 +20,6 @@
 }
 
 
-
 body {
 
   font-family:"Georgia","Times New Roman",serif;
@@ -48,7 +47,6 @@ nav {
 }
 
 
-
 nav a {
 
   color:#fff;
@@ -62,13 +60,11 @@ nav a {
 }
 
 
-
 nav a:hover {
 
   text-decoration:underline;
 
 }
-
 
 
 .nav-current {
@@ -83,9 +79,10 @@ nav a:hover {
 
 /* ===== Container ===== */
 
+
 .container {
 
-  max-width:880px;
+  max-width:900px;
 
   margin:60px auto;
 
@@ -101,7 +98,7 @@ h1 {
 
   font-weight:normal;
 
-  margin-bottom:30px;
+  margin-bottom:40px;
 
 }
 
@@ -109,75 +106,98 @@ h1 {
 
 /* ===== News Item ===== */
 
+
 .news-item {
+
 
   display:flex;
 
   align-items:flex-start;
 
-  gap:24px;
+  gap:30px;
 
-  padding:24px 0;
+  padding:30px 0;
 
   border-bottom:1px solid var(--border-color);
 
+
 }
 
 
 
-.news-item img {
+/* ===== 图片区域 ===== */
 
-  width:160px;
 
-  height:120px;
+.news-image {
 
-  object-fit:cover;
+
+  width:220px;
 
   flex-shrink:0;
 
+  display:flex;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+
 }
 
+
+
+.news-image img {
+
+
+  width:100%;
+
+  height:auto;
+
+  max-height:180px;
+
+  object-fit:contain;
+
+  border-radius:8px;
+
+  box-shadow:0 3px 12px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+/* ===== 内容区域 ===== */
 
 
 .news-content {
 
+
   flex:1;
+
 
 }
 
 
 
-/* 日期 */
-
 .news-date {
+
 
   font-size:14px;
 
   color:#888;
 
-  margin-bottom:8px;
+  margin-bottom:10px;
+
 
 }
 
 
-
-/* 标题 */
 
 .news-title {
 
-  margin:0;
 
-}
+  margin:0 0 12px 0;
 
-
-
-.news-title h3 {
-
-  margin:0 0 10px 0;
-
-  font-size:18px;
-
-  font-weight:normal;
 
 }
 
@@ -185,13 +205,15 @@ h1 {
 
 .news-title a {
 
+
+  font-size:19px;
+
   color:var(--main-blue);
 
   text-decoration:none;
 
   border-bottom:1px solid #f1c40f;
 
-  padding-bottom:2px;
 
 }
 
@@ -199,21 +221,23 @@ h1 {
 
 .news-title a:hover {
 
-  opacity:0.85;
+
+  text-decoration:underline;
+
 
 }
 
 
 
-/* 摘要 */
-
 .news-summary {
+
 
   font-size:16px;
 
+  line-height:1.7;
+
   color:var(--subtext-color);
 
-  line-height:1.6;
 
 }
 
@@ -223,29 +247,41 @@ h1 {
 
 /* ===== Mobile ===== */
 
+
 @media(max-width:700px){
 
 
 .news-item {
 
+
   flex-direction:column;
+
 
 }
 
 
+.news-image {
 
-.news-item img {
 
   width:100%;
 
+
+}
+
+
+
+.news-image img {
+
+
   max-width:360px;
 
-  height:auto;
 
 }
 
 
+
 }
+
 
 
 </style>
@@ -255,13 +291,15 @@ h1 {
 
 
 
-<body>
 
+<body>
 
 
 <!-- ===== Navigation ===== -->
 
+
 <nav>
+
 
 <a href="../index.html">Home</a>
 
@@ -295,7 +333,14 @@ h1 {
 <div class="news-item">
 
 
-<img src="../assets/images/news/2024-postdoc-cuhk.png" alt="CUHK">
+<div class="news-image">
+
+
+<img src="../assets/images/news/2024-postdoc-cuhk.png"
+alt="The Chinese University of Hong Kong">
+
+
+</div>
 
 
 
@@ -312,7 +357,6 @@ February 2024
 
 <div class="news-title">
 
-<h3>
 
 <a href="2024-postdoc.html">
 
@@ -320,7 +364,6 @@ Postdoctoral Appointment at The Chinese University of Hong Kong
 
 </a>
 
-</h3>
 
 </div>
 
@@ -328,17 +371,22 @@ Postdoctoral Appointment at The Chinese University of Hong Kong
 
 <div class="news-summary">
 
+
 I officially joined The Chinese University of Hong Kong as a Postdoctoral Researcher,
-focusing on spatiotemporal data analysis, GIS, and urban sustainability.
-
-</div>
-
+focusing on spatiotemporal data analysis, GIS, remote sensing,
+and urban sustainable development.
 
 
 </div>
 
 
+
 </div>
+
+
+</div>
+
+
 
 
 
@@ -348,10 +396,19 @@ focusing on spatiotemporal data analysis, GIS, and urban sustainability.
 <!-- ================= News 2 ================= -->
 
 
+
 <div class="news-item">
 
 
-<img src="../assets/images/news/2026-sztu-joining.png" alt="SZTU">
+<div class="news-image">
+
+
+<img src="../assets/images/news/2026-sztu-joining.png"
+alt="Shenzhen Technology University">
+
+
+</div>
+
 
 
 
@@ -370,18 +427,13 @@ August 2026
 <div class="news-title">
 
 
-<h3>
-
-
 <a href="2026-sztu-joining.html">
 
-Full-time Associate Researcher Appointment at Shenzhen Technology University
+
+Joining Shenzhen Technology University as Associate Researcher
 
 
 </a>
-
-
-</h3>
 
 
 </div>
@@ -389,12 +441,13 @@ Full-time Associate Researcher Appointment at Shenzhen Technology University
 
 
 
-
 <div class="news-summary">
 
 
-I officially joined The Shenzhen Technology University as a full-time Associate Researcher,
-focusing on Transportation and land use coupling.
+I joined Shenzhen Technology University as a full-time Associate Researcher
+in the College of Urban Transportation and Logistics,
+focusing on transportation, land use interaction,
+and intelligent urban systems.
 
 
 </div>
@@ -417,5 +470,6 @@ focusing on Transportation and land use coupling.
 
 
 </body>
+
 
 </html>
