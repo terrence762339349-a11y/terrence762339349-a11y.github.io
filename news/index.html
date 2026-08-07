@@ -1,176 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <title>News | Terrence He</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
 <style>
+
 :root {
-  --main-blue: #0b4f9c;
-  --border-color: #e5e5e5;
-  --text-color: #222;
-  --subtext-color: #555;
+
+  --main-blue:#0b4f9c;
+  --border-color:#e5e5e5;
+  --text-color:#222;
+  --subtext-color:#555;
+
 }
+
+
 
 body {
-  font-family: "Georgia", "Times New Roman", serif;
-  margin: 0;
-  background: #fff;
-  color: var(--text-color);
+
+  font-family:"Georgia","Times New Roman",serif;
+
+  margin:0;
+
+  background:#fff;
+
+  color:var(--text-color);
+
 }
+
+
 
 /* ===== Navigation ===== */
+
 nav {
-  background-color: var(--main-blue);
-  padding: 14px 0;
-  text-align: center;
+
+  background-color:var(--main-blue);
+
+  padding:14px 0;
+
+  text-align:center;
+
 }
+
+
 
 nav a {
-  color: #fff;
-  margin: 0 16px;
-  text-decoration: none;
-  font-size: 15px;
+
+  color:#fff;
+
+  margin:0 16px;
+
+  text-decoration:none;
+
+  font-size:15px;
+
 }
+
+
+
+nav a:hover {
+
+  text-decoration:underline;
+
+}
+
+
 
 .nav-current {
-  font-weight: 700;
-  text-decoration: underline;
+
+  font-weight:700;
+
+  text-decoration:underline;
+
 }
+
+
 
 /* ===== Container ===== */
+
 .container {
-  max-width: 880px;
-  margin: 60px auto;
-  padding: 0 20px;
+
+  max-width:880px;
+
+  margin:60px auto;
+
+  padding:0 20px;
+
 }
+
+
 
 h1 {
-  font-size: 32px;
-  font-weight: normal;
-  margin-bottom: 30px;
+
+  font-size:32px;
+
+  font-weight:normal;
+
+  margin-bottom:30px;
+
 }
+
+
 
 /* ===== News Item ===== */
+
 .news-item {
-  display: flex;
-  gap: 24px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border-color);
+
+  display:flex;
+
+  align-items:flex-start;
+
+  gap:24px;
+
+  padding:24px 0;
+
+  border-bottom:1px solid var(--border-color);
+
 }
+
+
 
 .news-item img {
-  width: 160px;
-  height: auto;
-  object-fit: contain;
+
+  width:160px;
+
+  height:120px;
+
+  object-fit:cover;
+
+  flex-shrink:0;
+
 }
+
+
 
 .news-content {
-  flex: 1;
+
+  flex:1;
+
 }
 
-.news-title {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
 
-.news-title a {
-  color: var(--main-blue);
-  text-decoration: none;
-  border-bottom: 1px solid #f1c40f;
-  padding-bottom: 2px;
-}
 
-.news-title a:hover {
-  opacity: 0.85;
-}
+/* 日期 */
 
 .news-date {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 6px;
+
+  font-size:14px;
+
+  color:#888;
+
+  margin-bottom:8px;
+
 }
+
+
+
+/* 标题 */
+
+.news-title {
+
+  margin:0;
+
+}
+
+
+
+.news-title h3 {
+
+  margin:0 0 10px 0;
+
+  font-size:18px;
+
+  font-weight:normal;
+
+}
+
+
+
+.news-title a {
+
+  color:var(--main-blue);
+
+  text-decoration:none;
+
+  border-bottom:1px solid #f1c40f;
+
+  padding-bottom:2px;
+
+}
+
+
+
+.news-title a:hover {
+
+  opacity:0.85;
+
+}
+
+
+
+/* 摘要 */
 
 .news-summary {
-  font-size: 16px;
-  color: var(--subtext-color);
-  line-height: 1.6;
+
+  font-size:16px;
+
+  color:var(--subtext-color);
+
+  line-height:1.6;
+
 }
+
+
+
+
 
 /* ===== Mobile ===== */
-@media (max-width: 700px) {
-  .news-item {
-    flex-direction: column;
-  }
 
-  .news-item img {
-    width: 100%;
-    max-width: 360px;
-    height: auto;
-  }
+@media(max-width:700px){
+
+
+.news-item {
+
+  flex-direction:column;
+
 }
+
+
+
+.news-item img {
+
+  width:100%;
+
+  max-width:360px;
+
+  height:auto;
+
+}
+
+
+}
+
+
 </style>
+
+
 </head>
+
+
 
 <body>
 
+
+
+<!-- ===== Navigation ===== -->
+
 <nav>
-  <a href="../index.html">Home</a>
-  <a href="index.html" class="nav-current">News</a>
-  <a href="../research.html">Research</a>
-  <a href="../publications.html">Publications</a>
-  <a href="../cv.html">CV</a>
+
+<a href="../index.html">Home</a>
+
+<a href="index.html" class="nav-current">News</a>
+
+<a href="../research.html">Research</a>
+
+<a href="../publications.html">Publications</a>
+
+<a href="../cv.html">CV</a>
+
+
 </nav>
+
+
+
+
 
 <div class="container">
 
+
 <h1>News</h1>
 
-<!-- ===== News 1 ===== -->
+
+
+
+
+<!-- ================= News 1 ================= -->
+
+
 <div class="news-item">
-  <img src="../assets/images/news/2024-postdoc-cuhk.png" alt="CUHK">
-  <div class="news-content">
-    <div class="news-date">Feb 2024</div>
-    <div class="news-title">
-      <h3>
-        <a href="2024-postdoc.html">
-          Postdoctoral Appointment at The Chinese University of Hong Kong
-        </a>
-      </h3>
-      <p class="news-date">February 2024</p>
-    </div>
-    <div class="news-summary">
-      I officially joined The Chinese University of Hong Kong as a Postdoctoral Researcher,
-      focusing on spatiotemporal data analysis, GIS, and urban sustainability.
-    </div>
 
-    <div class="news-item">
 
-<!-- ===== News 2 ===== -->
-<div class="news-item">
-  <img src="../assets/images/news/2026-sztu-joining.png" alt="SZTU">
-  <div class="news-content">
-    <div class="news-date">Aug 2026</div>
-    <div class="news-title">
-      <h3>
-        <a href="2026-sztu-joining.html">
-          Full-time Associate Researcher Appointment at Shenzhen Technology University
-        </a>
-      </h3>
-      <p class="news-date">August 2026</p>
-    </div>
-    <div class="news-summary">
-      I officially joined The Shenzhen Technology University as a full-time Associate Researcher,
-      focusing on Transportation and land use coupling.
-    </div>
+<img src="../assets/images/news/2024-postdoc-cuhk.png" alt="CUHK">
 
-    <div class="news-item">
+
+
+<div class="news-content">
+
+
+<div class="news-date">
+
+February 2024
+
+</div>
+
+
+
+<div class="news-title">
+
+<h3>
+
+<a href="2024-postdoc.html">
+
+Postdoctoral Appointment at The Chinese University of Hong Kong
+
+</a>
+
+</h3>
+
+</div>
+
+
+
+<div class="news-summary">
+
+I officially joined The Chinese University of Hong Kong as a Postdoctoral Researcher,
+focusing on spatiotemporal data analysis, GIS, and urban sustainability.
+
+</div>
+
 
 
 </div>
 
+
 </div>
+
+
+
+
+
+
+<!-- ================= News 2 ================= -->
+
+
+<div class="news-item">
+
+
+<img src="../assets/images/news/2026-sztu-joining.png" alt="SZTU">
+
+
+
+<div class="news-content">
+
+
+<div class="news-date">
+
+August 2026
+
+</div>
+
+
+
+
+<div class="news-title">
+
+
+<h3>
+
+
+<a href="2026-sztu-joining.html">
+
+Full-time Associate Researcher Appointment at Shenzhen Technology University
+
+
+</a>
+
+
+</h3>
+
+
+</div>
+
+
+
+
+
+<div class="news-summary">
+
+
+I officially joined The Shenzhen Technology University as a full-time Associate Researcher,
+focusing on Transportation and land use coupling.
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
 </body>
-</html>
 
+</html>
